@@ -13,6 +13,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
+    "tailwindcss": "^2.0.1",
     "typescript": "^4.1.2",
     "web-vitals": "^0.2.4"
   },
@@ -20,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tailwind": "npx tailwindcss-cli@latest build ./src/assets/css/app.css -o ./public/css/app.css"
   },
   "eslintConfig": {
     "extends": [
