@@ -6,3 +6,6 @@
 
 # ESLint
 .eslintcache
+
+# Tailwind build
+/public/css
