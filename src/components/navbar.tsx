@@ -51,8 +51,8 @@ interface NavLinkProps {
  */
 export const NavLink: React.FC<NavLinkProps> = (props) => {
     return props.active ? (
-        <a href={props.href} className="px-3 py-2 rounded-md font-medium text-light bg-primary-dark hover:bg-primary">{props.children}</a>
+        <a href={props.href} className="px-3 py-2 rounded-md font-medium bg-primary-dark hover:bg-primary">{props.children}</a>
     ) : (
-        <a href={props.href} className="px-3 py-2 rounded-md font-medium text-light hover:bg-secondary">{props.children}</a>
+        <a href={props.href} className="px-3 py-2 rounded-md font-medium hover:bg-secondary">{props.children}</a>
     )
 }
