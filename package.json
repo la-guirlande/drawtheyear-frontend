@@ -10,7 +10,9 @@
     "@types/node": "^12.19.7",
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
+    "autoprefixer": "^10.0.4",
     "moment": "^2.29.1",
+    "postcss": "^8.1.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -20,10 +22,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prestart": "npm run build:tailwind",
+    "prebuild": "npm run build:tailwind",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "tailwind": "npx tailwindcss-cli@latest build ./src/assets/css/app.css -o ./public/css/app.css"
+    "build:tailwind": "tailwindcss build ./src/assets/css/app.css -o ./public/css/app.css"
   },
   "eslintConfig": {
     "extends": [
