@@ -8,4 +8,4 @@
 .eslintcache
 
 # Tailwind build
-/public/css
+/src/assets/css/index.css
