@@ -12,6 +12,7 @@
     "@types/react-dom": "^16.9.10",
     "autoprefixer": "^10.0.4",
     "moment": "^2.29.1",
+    "node-waves": "^0.7.6",
     "postcss": "^8.1.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
