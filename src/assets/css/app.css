@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Drawing Guides";
+    src: url("../fonts/drawing-guides.ttf");
+}
+
+@font-face {
+    font-family: "Magic Mushroom";
+    src: url("../fonts/magic-mushroom.otf");
+}
+
+* {
+    font-family: "Magic Mushroom";
+}

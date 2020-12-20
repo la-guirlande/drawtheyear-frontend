@@ -8,6 +8,10 @@ module.exports = {
     darkMode: false,
     theme: {
         extend: {
+            fontFamily: {
+                primary: ['"Drawing Guides"'],
+                secondary: ['"Magic Mushroom"']
+            },
             colors: {
                 primary: {
                     light: '#f88c36',
