@@ -1,6 +1,6 @@
 import React from 'react';
 import { HomePage } from './homepage';
-import { Navbar } from './navbar';
+import { Navbar } from './navbar/navbar';
 
 const App: React.FC = () => (
     <>
