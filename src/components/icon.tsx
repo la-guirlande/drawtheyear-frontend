@@ -4,7 +4,7 @@ import React from 'react';
  * Icon component props.
  */
 interface IconProps {
-    type: 'dehaze';
+    type: 'cloud' | 'dehaze';
 }
 
 /**
