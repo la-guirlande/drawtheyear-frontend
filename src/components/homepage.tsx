@@ -9,10 +9,10 @@ export const HomePage: React.FC = () => (
     <div className="container mx-auto">
         <Header />
         <div className="h-48 flex flex-wrap content-center">
-            <div className="w-1/2 text-center">
+            <div className="w-full md:w-1/2 mb-5 md:mb-0 text-center">
                 <h2 className="text-2xl">News</h2>
             </div>
-            <div className="w-1/2 text-center">
+            <div className="w-full md:w-1/2 text-center">
                 <h2 className="text-2xl">Activity</h2>
             </div>
         </div>
