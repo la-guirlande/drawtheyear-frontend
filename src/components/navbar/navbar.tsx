@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Icon } from '../icon';
+import { Modal } from './modal';
+import { NavLink } from './nav-link';
 import { NavMenu } from './nav-menu';
 
 /**
@@ -7,6 +9,7 @@ import { NavMenu } from './nav-menu';
  */
 export const Navbar: React.FC = () => {
     const [dropdown, setDropdown] = useState(false);
+    const [showConnectionModal, setShowConnectionModal] = useState(false);
 
     return (
         <nav className="mb-3 bg-secondary-dark">
@@ -22,10 +25,14 @@ export const Navbar: React.FC = () => {
                             <NavMenu active="grid" />
                         </div>
                     </div>
-                    <div className="md:hidden flex items-center">
-                        <button className="inline-block px-6 py-2 leading-6 text-center text-light transition focus:outline-none waves-effect" onClick={() => setDropdown(!dropdown)}>
-                            <Icon type='dehaze' />
-                        </button>
+                    <div className="flex items-center">
+                        <NavLink onClick={() => setShowConnectionModal(true)}>Signin</NavLink>
+                        <Modal show={showConnectionModal} onClose={() => setShowConnectionModal(false)} />
+                        <div className="md:hidden flex items-center">
+                            <NavLink onClick={() => setDropdown(!dropdown)}>
+                                <Icon type='dehaze' />
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
                 {dropdown && (
