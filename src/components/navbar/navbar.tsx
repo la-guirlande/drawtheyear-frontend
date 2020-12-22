@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Icon } from '../icon';
-import { Modal } from './modal';
+import { Modal } from '../modal';
 import { NavLink } from './nav-link';
 import { NavMenu } from './nav-menu';
 
