@@ -27,7 +27,7 @@ export const Navbar: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                         <NavLink onClick={() => setShowConnectionModal(true)}>Signin</NavLink>
-                        <Modal show={showConnectionModal} onClose={() => setShowConnectionModal(false)} />
+                        <Modal show={showConnectionModal} icon="cloud" onClose={() => setShowConnectionModal(false)} />
                         <div className="md:hidden flex items-center">
                             <NavLink onClick={() => setDropdown(!dropdown)}>
                                 <Icon type='dehaze' />

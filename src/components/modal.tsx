@@ -1,9 +1,10 @@
 import { Transition } from '@headlessui/react';
 import React from 'react';
-import { Icon } from './icon';
+import { Icon, IconType } from './icon';
 
 interface ModalProps {
     show?: boolean;
+    icon: IconType;
     onClose?: () => void;
 }
 
@@ -29,7 +30,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
                             <div className="sm:flex sm:items-start">
                                 <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-300 sm:mx-0 sm:h-10 sm:w-10">
                                     <div className="text-blue-700">
-                                        <Icon type="cloud" />
+                                        <Icon type={props.icon} />
                                     </div>
                                 </div>
                                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
