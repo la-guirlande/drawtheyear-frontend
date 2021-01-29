@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useFetch from '../hooks/fetch-hook';
 import { Config } from '../util/config';
 import { LocalStorageKey } from '../util/types/local-storage';
@@ -41,6 +41,9 @@ export const SigninContainer: React.FC = () => {
   }
 
   return (
-    <SigninForm onSubmit={handleSubmitSigninForm} />
+    <>
+      <SigninForm onSubmit={handleSubmitSigninForm} />
+      <Link to="/signup">Inscription</Link>
+    </>
   );
 }
