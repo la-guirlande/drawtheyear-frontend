@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Icon } from '../icon';
-import { Modal } from '../modal';
 import { NavLink } from './nav-link';
 import { NavMenu } from './nav-menu';
 
@@ -9,7 +9,6 @@ import { NavMenu } from './nav-menu';
  */
 export const Navbar: React.FC = () => {
     const [dropdown, setDropdown] = useState(false);
-    const [showConnectionModal, setShowConnectionModal] = useState(false);
 
     return (
         <nav className="mb-3 bg-secondary-dark">
@@ -17,17 +16,18 @@ export const Navbar: React.FC = () => {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <a className="waves-effect" href="#">
+                            <Link className="waves-effect" to="/" href="#">
                                 <img className="w-8" src="https://icons-for-free.com/iconfiles/png/512/fireworks+new+year+party+icon-1320185813780531454.png" alt="DrawTheYear" />
-                            </a>
+                            </Link>
                         </div>
                         <div className="hidden md:block">
                             <NavMenu active="grid" />
                         </div>
                     </div>
                     <div className="flex items-center">
-                        <NavLink onClick={() => setShowConnectionModal(true)}>Signin</NavLink>
-                        <Modal show={showConnectionModal} icon="cloud" onClose={() => setShowConnectionModal(false)} />
+                        <NavLink>
+                            <Link to="/signin">Connexion</Link>
+                        </NavLink>
                         <div className="md:hidden flex items-center">
                             <NavLink onClick={() => setDropdown(!dropdown)}>
                                 <Icon type='dehaze' />
