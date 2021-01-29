@@ -17,3 +17,8 @@
 * {
     font-family: "Magic Mushroom";
 }
+
+body {
+    @apply text-light;
+    @apply bg-dark;
+}
