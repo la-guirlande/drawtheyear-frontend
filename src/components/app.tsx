@@ -4,6 +4,7 @@ import { AuthenticationContextProvider } from './contexts/authentication-context
 import { HomePage } from './home-page';
 import { Navbar } from './navbar/navbar';
 import { SigninPage } from './signin-page';
+import { SignupPage } from './signup-page';
 
 const App: React.FC = () => (
     <AuthenticationContextProvider>
@@ -22,6 +23,10 @@ const App: React.FC = () => (
                 <Route exact path="/signin">
                     <Navbar />
                     <SigninPage />
+                </Route>
+                <Route exact path="/signup">
+                    <Navbar />
+                    <SignupPage />
                 </Route>
             </Switch>
         </BrowserRouter>
