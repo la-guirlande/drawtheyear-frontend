@@ -14,7 +14,7 @@ export const SigninForm: React.FC<SigninFormProps> = ({ onSubmit }) => {
     defaultValues: { email: '', password: '' }
   });
 
-  const nameRegister = register({
+  const emailRegister = register({
     required: {
       value: true,
       message: 'Ce champ est requis'
@@ -33,12 +33,12 @@ export const SigninForm: React.FC<SigninFormProps> = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit(data => onSubmit(data))}>
-      <input className="bg-black" ref={nameRegister} type="text" name="email" />
+      <input className="bg-black m-2" ref={emailRegister} type="text" name="email" />
       {errors.email && <small>{errors.email.message}</small>}
-      <br />
-      <input className="bg-black" ref={passwordRegister} type="password" name="password" />
+
+      <input className="bg-black m-2" ref={passwordRegister} type="password" name="password" />
       {errors.password && <small>{errors.password.message}</small>}
-      <br />
+
       <button type="submit">Connexion</button>
     </form>
   );
