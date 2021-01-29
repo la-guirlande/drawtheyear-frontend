@@ -1,3 +1,5 @@
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "waves-effect.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,4 +16,9 @@
 
 * {
     font-family: "Magic Mushroom";
+}
+
+body {
+    @apply text-light;
+    @apply bg-dark;
 }

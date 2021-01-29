@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthenticationContext } from '../contexts/authentication-context';
 import { Icon } from '../icon';
+import { NavLink } from './nav-link';
 import { NavMenu } from './nav-menu';
 
 /**
@@ -7,6 +10,12 @@ import { NavMenu } from './nav-menu';
  */
 export const Navbar: React.FC = () => {
     const [dropdown, setDropdown] = useState(false);
+    const { authUser, setAuthUser } = useContext(AuthenticationContext);
+
+    const handleDisconnect = () => {
+        setAuthUser(null);
+        localStorage.clear();
+    }
 
     return (
         <nav className="mb-3 bg-secondary-dark">
@@ -14,18 +23,23 @@ export const Navbar: React.FC = () => {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <a className="waves-effect" href="#">
+                            <Link className="waves-effect" to="/" href="#">
                                 <img className="w-8" src="https://icons-for-free.com/iconfiles/png/512/fireworks+new+year+party+icon-1320185813780531454.png" alt="DrawTheYear" />
-                            </a>
+                            </Link>
                         </div>
                         <div className="hidden md:block">
                             <NavMenu active="grid" />
                         </div>
                     </div>
-                    <div className="md:hidden flex items-center">
-                        <button className="inline-block px-6 py-2 leading-6 text-center text-light transition focus:outline-none waves-effect" onClick={() => setDropdown(!dropdown)}>
-                            <Icon type='dehaze' />
-                        </button>
+                    <div className="flex items-center">
+                        <NavLink>
+                            {authUser ? <a onClick={handleDisconnect}>Déconnexion</a> : <Link to="/signin">Connexion</Link>}
+                        </NavLink>
+                        <div className="md:hidden flex items-center">
+                            <NavLink onClick={() => setDropdown(!dropdown)}>
+                                <Icon type='dehaze' />
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
                 {dropdown && (

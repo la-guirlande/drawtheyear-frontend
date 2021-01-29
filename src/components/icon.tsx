@@ -1,10 +1,14 @@
 import React from 'react';
 
+export type IconType
+    = 'cloud'
+    | 'dehaze';
+
 /**
  * Icon component props.
  */
 interface IconProps {
-    type: 'dehaze';
+    type: IconType;
 }
 
 /**

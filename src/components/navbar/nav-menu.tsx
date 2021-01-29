@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { NavLink } from './nav-link';
 
 /**
@@ -19,16 +20,24 @@ export const NavMenu: React.FC<NavMenuProps> = (props) => {
     return props.list ? (
         <ul className="list-outside">
             <li>
-                <NavLink href="#" active={props.active === 'grid'}>Grid</NavLink>
+                <NavLink active={props.active === 'grid'}>
+                    <Link to="/grid">Grille</Link>
+                </NavLink>
             </li>
             <li>
-                <NavLink href="#" active={props.active === 'stats'}>Stats</NavLink>
+                <NavLink active={props.active === 'stats'}>
+                    <Link to="/stats">Statistiques</Link>
+                </NavLink>
             </li>
         </ul>
     ) : (
         <div className="ml-10 flex items-baseline space-x-4">
-            <NavLink href="#" active={props.active === 'grid'}>Grid</NavLink>
-            <NavLink href="#" active={props.active === 'stats'}>Stats</NavLink>
+            <NavLink active={props.active === 'grid'}>
+                <Link to="/grid">Grille</Link>
+            </NavLink>
+            <NavLink active={props.active === 'stats'}>
+                <Link to="/stats">Statistiques</Link>
+            </NavLink>
         </div>
     );
 }
