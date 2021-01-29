@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthenticationContext } from '../contexts/authentication-context';
 import { Icon } from '../icon';
 import { NavLink } from './nav-link';
 import { NavMenu } from './nav-menu';
@@ -9,6 +10,12 @@ import { NavMenu } from './nav-menu';
  */
 export const Navbar: React.FC = () => {
     const [dropdown, setDropdown] = useState(false);
+    const { authUser, setAuthUser } = useContext(AuthenticationContext);
+
+    const handleDisconnect = () => {
+        setAuthUser(null);
+        localStorage.clear();
+    }
 
     return (
         <nav className="mb-3 bg-secondary-dark">
@@ -26,7 +33,7 @@ export const Navbar: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                         <NavLink>
-                            <Link to="/signin">Connexion</Link>
+                            {authUser ? <a onClick={handleDisconnect}>Déconnexion</a> : <Link to="/signin">Connexion</Link>}
                         </NavLink>
                         <div className="md:hidden flex items-center">
                             <NavLink onClick={() => setDropdown(!dropdown)}>
