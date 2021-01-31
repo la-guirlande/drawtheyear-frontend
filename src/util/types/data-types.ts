@@ -16,6 +16,7 @@ export interface UserData extends TimeStamps {
     name: string;
     password?: string;
     emotions: EmotionData[];
+    days: DayData[];
 }
 
 /**
