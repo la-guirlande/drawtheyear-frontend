@@ -148,13 +148,13 @@ const useFetch = <R extends Response>(baseUrl?: string, authenticated: boolean =
 
             if (refreshToken != null) {
                 try {
-                    const res = await axios.post<RefreshTokenResponse>(`${Config.API_URL}/auth/refreshToken`, {
+                    const res = await axios.post<RefreshTokenResponse>(`${Config.API_URL}/auth/accessToken`, {
                         refresh_token: refreshToken
                     });
                     localStorage.setItem(LocalStorageKey.ACCESS_TOKEN, res.data.access_token);
                     return true;
                 } catch (err) {
-                    console.warn('Could not authenticate user');
+                    console.warn('Could not authenticate user :', err.message);
                     localStorage.removeItem(LocalStorageKey.ACCESS_TOKEN);
                     localStorage.removeItem(LocalStorageKey.REFRESH_TOKEN);
                 }
