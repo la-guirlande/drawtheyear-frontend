@@ -6,6 +6,7 @@ import { HomePage } from './home-page';
 import { Navbar } from './navbar/navbar';
 import { SigninPage } from './signin-page';
 import { SignupPage } from './signup-page';
+import { StatsPage } from './stats/stats-page';
 
 const App: React.FC = () => (
     <AuthenticationContextProvider>
@@ -21,6 +22,7 @@ const App: React.FC = () => (
                 </Route>
                 <Route exact path="/stats">
                     <Navbar />
+                    <StatsPage />
                 </Route>
                 <Route exact path="/signin">
                     <Navbar />
