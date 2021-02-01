@@ -22,3 +22,11 @@ body {
     @apply text-light;
     @apply bg-dark;
 }
+  
+.cell-empty {
+    background: repeating-linear-gradient(0deg, rgb(31, 41, 55), rgb(31, 41, 55) 10px, rgb(35, 45, 59) 10px, rgb(35, 45, 59) 20px);
+}
+
+.cell-no-day {
+    background: repeating-linear-gradient(-45deg, rgb(31, 41, 55), rgb(31, 41, 55) 10px, #000000 10px, #000000 20px);
+}
