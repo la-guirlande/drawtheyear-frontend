@@ -25,7 +25,10 @@ module.exports = {
                 },
                 light: '#fff4e4',
                 dark: '#3d0e1e'
-            }
+            },
+            textShadow: {
+                cell: '-1px 0 1px rgb(50, 50, 50), 0 1px 1px rgb(50, 50, 50), 1px 0 1px rgb(50, 50, 50), 0 -1px 1px rgb(50, 50, 50)'
+            },
         }
     },
     variants: {
@@ -33,5 +36,7 @@ module.exports = {
             zIndex: ['hover']
         },
     },
-    plugins: [],
+    plugins: [
+        require('tailwindcss-textshadow')
+    ],
 }
