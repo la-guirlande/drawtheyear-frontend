@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AuthenticationContextProvider } from './contexts/authentication-context-provider';
-import { GridPage } from './grid-page';
+import { GridPage } from './grid/grid-page';
 import { HomePage } from './home-page';
 import { Navbar } from './navbar/navbar';
 import { SigninPage } from './signin-page';
