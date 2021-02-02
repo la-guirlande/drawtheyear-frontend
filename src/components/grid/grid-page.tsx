@@ -3,6 +3,8 @@ import { GridContainer } from './grid-container';
 
 export const GridPage: React.FC = () => {
   return (
-    <GridContainer />
+    <div className="mt-3">
+      <GridContainer />
+    </div>
   );
 }
