@@ -8,9 +8,11 @@ import { NoDayCell } from './no-day-cell';
 export type GridProps = {
   user: UserData;
   year?: number;
+  onDayCreate?(dateStr: string): void;
+  onDaySelect?(day: DayData): void;
 }
 
-export const Grid: React.FC<GridProps> = ({ user, year }) => {
+export const Grid: React.FC<GridProps> = ({ user, year, onDayCreate, onDaySelect }) => {
 
   const generateColumn = (month: number) => {
     const colDays: { row: number, day?: DayData }[] = [];
@@ -26,10 +28,10 @@ export const Grid: React.FC<GridProps> = ({ user, year }) => {
         return <NoDayCell key={`${month}-${i}`} />
       }
       if (day) {
-        return <DayCell key={`${month}-${i}`} dayofmonth={row} day={day} href={`/grid/${user.name}/day/${day.date}`} />
+        return <DayCell key={`${month}-${i}`} dayofmonth={row} day={day} onClick={() => onDaySelect(day)} />
       }
       const dateStr = moment(`${year}-${month}-${row}`).format('YYYY-MM-DD');
-      return <EmptyCell key={`${month}-${i}`} dayofmonth={row} href={`/grid/${user.name}/day/add?date=${dateStr}`} />
+      return <EmptyCell key={`${month}-${i}`} dayofmonth={row} href={`/grid/${user.name}/day/add?date=${dateStr}`} onClick={() => onDayCreate(dateStr)} />
     });
   }
 
