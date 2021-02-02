@@ -1,4 +1,13 @@
 /**
+ * ID interface.
+ * 
+ * This interface is used with data interfaces that have ID by extending this.
+ */
+interface ID {
+    id?: string;
+}
+
+/**
  * Timestamps interface.
  * 
  * This interface is used with data interfaces that have timestamps by extending this.
@@ -11,7 +20,7 @@ interface TimeStamps {
 /**
  * User data interface.
  */
-export interface UserData extends TimeStamps {
+export interface UserData extends ID, TimeStamps {
     email: string;
     name: string;
     password?: string;
@@ -22,7 +31,7 @@ export interface UserData extends TimeStamps {
 /**
  * Emotion data interface.
  */
-export interface EmotionData extends TimeStamps {
+export interface EmotionData extends ID, TimeStamps {
     name: string;
     color: string;
     owner: UserData;
