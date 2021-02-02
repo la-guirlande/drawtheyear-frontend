@@ -10,12 +10,12 @@
 }
 
 @font-face {
-    font-family: "Magic Mushroom";
-    src: url("../fonts/magic-mushroom.otf");
+    font-family: "Milky Nice";
+    src: url("../fonts/milky-nice.otf");
 }
 
 * {
-    font-family: "Magic Mushroom";
+    font-family: "Milky Nice";
 }
 
 body {
