@@ -13,7 +13,7 @@ export const DayCell: React.FC<DayCellProps> = ({ dayofmonth, day, children, ...
 
   return (
     <div className="z-0 relative transition duration-500 ease-in-out transform hover:z-10 hover:scale-125" onMouseEnter={toggleDetail} onMouseLeave={toggleDetail}>
-      <a className="w-auto flex items-center justify-center h-8 border border-solid border-black rounded text-center" style={{ backgroundColor: day.emotions[0].color }} {...rest}>
+      <a className="w-auto flex items-center justify-center h-8 border border-solid border-black rounded text-center cursor-pointer" style={{ backgroundColor: day.emotions[0].color }} {...rest}>
         <span className="text-shadow-cell">
           {showDetailText ? 'Détails' : dayofmonth}
         </span>
