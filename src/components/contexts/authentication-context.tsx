@@ -31,7 +31,7 @@ export const AuthenticationContextProvider: React.FC = (props) => {
       if (userInfoQueryState.data) {
         setAuthUser(userInfoQueryState.data.user);
       } else {
-        console.log(userInfoQueryState.errors);
+        console.error(userInfoQueryState.errors);
       }
     } else {
       userInfoQuery.get();

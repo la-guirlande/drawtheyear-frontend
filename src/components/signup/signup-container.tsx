@@ -26,7 +26,7 @@ export const SignupContainer: React.FC = () => {
       if (createUserQueryState.data) {
         refreshTokenQuery.post(null, currentSigninValues);
       } else {
-        console.log(createUserQueryState.errors);
+        console.error(createUserQueryState.errors);
       }
     }
   }, [createUserQueryState.fetched, currentSigninValues]);
@@ -38,7 +38,7 @@ export const SignupContainer: React.FC = () => {
         localStorage.setItem(LocalStorageKey.ACCESS_TOKEN, refreshTokenQueryState.data.access_token);
         userInfoQuery.get();
       } else {
-        console.log(refreshTokenQueryState.errors);
+        console.error(refreshTokenQueryState.errors);
       }
     }
   }, [refreshTokenQueryState.fetched]);
@@ -49,7 +49,7 @@ export const SignupContainer: React.FC = () => {
         authenticationContext.setAuthUser(userInfoQueryState.data.user);
         history.goBack();
       } else {
-        console.log(userInfoQueryState.errors);
+        console.error(userInfoQueryState.errors);
       }
     }
   }, [userInfoQueryState.fetched]);
@@ -64,8 +64,6 @@ export const SignupContainer: React.FC = () => {
   }
 
   return (
-    <>
-      <SignupForm onSubmit={handleSubmitSignupForm} />
-    </>
+    <SignupForm onSubmit={handleSubmitSignupForm} />
   );
 }

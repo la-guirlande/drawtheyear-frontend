@@ -1,9 +1,10 @@
 import { useContext, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import useFetch from '../../hooks/fetch-hook';
 import { Config } from '../../util/config';
 import { LocalStorageKey } from '../../util/types/local-storage';
 import { GetUserResponse, RefreshTokenResponse } from '../../util/types/response-types';
+import { Button } from '../button';
 import { AuthenticationContext } from '../contexts/authentication-context';
 import { SigninForm, SigninFormValues } from './signin-form';
 
@@ -25,7 +26,7 @@ export const SigninContainer: React.FC = () => {
         localStorage.setItem(LocalStorageKey.ACCESS_TOKEN, refreshTokenQueryState.data.access_token);
         userInfoQuery.get();
       } else {
-        console.log(refreshTokenQueryState.errors);
+        console.error(refreshTokenQueryState.errors);
       }
     }
   }, [refreshTokenQueryState.fetched]);
@@ -36,7 +37,7 @@ export const SigninContainer: React.FC = () => {
         authenticationContext.setAuthUser(userInfoQueryState.data.user);
         history.goBack();
       } else {
-        console.log(userInfoQueryState.errors);
+        console.error(userInfoQueryState.errors);
       }
     }
   }, [userInfoQueryState.fetched]);
@@ -48,7 +49,7 @@ export const SigninContainer: React.FC = () => {
   return (
     <>
       <SigninForm onSubmit={handleSubmitSigninForm} />
-      <Link to="/signup">Inscription</Link>
+      <Button href="/signup">Inscription</Button>
     </>
   );
 }

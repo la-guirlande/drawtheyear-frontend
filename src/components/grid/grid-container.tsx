@@ -26,7 +26,7 @@ export const GridContainer: React.FC = () => {
     } else if (usersQueryState.data && usersQueryState.data.users.length >= 1) {
       setUser(usersQueryState.data.users[0]);
     } else {
-      console.log(usersQueryState.errors);
+      console.error(usersQueryState.errors);
     }
   }, [usersQueryState.fetched]);
 

@@ -55,7 +55,7 @@ export const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
       message: 'Ce champ est requis'
     },
     validate: {
-      value: value => value === watch('password')
+      value: value => value === watch('password') || 'Les mots de passe ne correspondent pas'
     }
   });
 
@@ -71,7 +71,7 @@ export const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
       {errors.password && <small>{errors.password.message}</small>}
 
       <input className="bg-black m-2" ref={passwordRepeatRegister} type="password" name="passwordRepeat" />
-      {errors.passwordRepeat && <small>Les mots de passe sont différents</small>}
+      {errors.passwordRepeat && <small>{errors.passwordRepeat}</small>}
 
       <button type="submit">Inscription</button>
     </form>
