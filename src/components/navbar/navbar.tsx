@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
     }
 
     return (
-        <nav className="mb-3 bg-secondary-dark">
+        <nav className="bg-secondary-dark">
             <div className="px-4">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">

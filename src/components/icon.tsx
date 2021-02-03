@@ -2,7 +2,8 @@ import React from 'react';
 
 export type IconType
     = 'cloud'
-    | 'dehaze';
+    | 'dehaze'
+    | 'close';
 
 /**
  * Icon component props.

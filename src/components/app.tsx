@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AuthenticationContextProvider } from './contexts/authentication-context-provider';
+import { GridPage } from './grid/grid-page';
 import { HomePage } from './home-page';
 import { Navbar } from './navbar/navbar';
 import { SigninPage } from './signin-page';
@@ -14,8 +15,9 @@ const App: React.FC = () => (
                     <Navbar />
                     <HomePage />
                 </Route>
-                <Route exact path="/grid">
+                <Route exact path="/grid/:username">
                     <Navbar />
+                    <GridPage />
                 </Route>
                 <Route exact path="/stats">
                     <Navbar />
