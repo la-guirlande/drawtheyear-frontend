@@ -1,16 +1,27 @@
 import { useForm } from 'react-hook-form'
 
-export type SignupFormValues = {
+/**
+ * Signup form values.
+ */
+export interface SignupFormValues {
   email: string;
   name: string;
   password: string;
   passwordRepeat: string;
 }
 
-export type SignupFormProps = {
+/**
+ * Signup form props.
+ */
+export interface SignupFormProps {
   onSubmit(data: SignupFormValues): void;
 }
 
+/**
+ * Signup form component.
+ * 
+ * @param onSubmit When the form is submitted
+ */
 export const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
   const { errors, register, watch, handleSubmit } = useForm<SignupFormValues>({
     defaultValues: { email: '', name: '', password: '', passwordRepeat: '' }

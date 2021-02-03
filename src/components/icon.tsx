@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * Icon type.
+ */
 export type IconType
   = 'cloud'
   | 'dehaze'

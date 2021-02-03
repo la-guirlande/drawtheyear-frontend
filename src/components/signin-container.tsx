@@ -7,6 +7,11 @@ import { GetUserResponse, RefreshTokenResponse } from '../util/types/response-ty
 import { AuthenticationContext } from './contexts/authentication-context';
 import { SigninForm, SigninFormValues } from './signin-form';
 
+/**
+ * Signin container.
+ * 
+ * This container manages the signin system.
+ */
 export const SigninContainer: React.FC = () => {
   const [refreshTokenQuery, refreshTokenQueryState] = useFetch<RefreshTokenResponse>(`${Config.API_URL}/auth/refreshToken`);
   const [userInfoQuery, userInfoQueryState] = useFetch<GetUserResponse>(`${Config.API_URL}/users/info`);

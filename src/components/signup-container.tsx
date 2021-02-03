@@ -8,6 +8,11 @@ import { AuthenticationContext } from './contexts/authentication-context';
 import { SigninFormValues } from './signin-form';
 import { SignupForm, SignupFormValues } from './signup-form';
 
+/**
+ * Signup container.
+ * 
+ * This container manages the signup system.
+ */
 export const SignupContainer: React.FC = () => {
   const [currentSigninValues, setCurrentSigninValues] = useState<SigninFormValues>(null);
   const [createUserQuery, createUserQueryState] = useFetch<CreationResponse>(`${Config.API_URL}/users`);

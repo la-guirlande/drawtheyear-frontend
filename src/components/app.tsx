@@ -7,6 +7,11 @@ import { Navbar } from './navbar/navbar';
 import { SigninPage } from './signin-page';
 import { SignupPage } from './signup-page';
 
+/**
+ * App component.
+ * 
+ * This component is the entry point of the application.
+ */
 const App: React.FC = () => (
   <AuthenticationContextProvider>
     <BrowserRouter>
