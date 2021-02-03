@@ -1,15 +1,15 @@
 import React from 'react';
 
 export type IconType
-    = 'cloud'
-    | 'dehaze'
-    | 'close';
+  = 'cloud'
+  | 'dehaze'
+  | 'close';
 
 /**
  * Icon component props.
  */
 interface IconProps {
-    type: IconType;
+  type: IconType;
 }
 
 /**
@@ -18,5 +18,5 @@ interface IconProps {
  * @param type Icon type
  */
 export const Icon: React.FC<IconProps> = (props) => (
-    <i className="material-icons align-middle">{props.type}</i>
+  <i className="material-icons align-middle">{props.type}</i>
 )
