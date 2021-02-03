@@ -30,10 +30,6 @@ export const GridContainer: React.FC = () => {
     }
   }, [usersQueryState.fetched]);
 
-  const handleDayCreate = (dateStr: string) => {
-    console.log(dateStr);
-  }
-
   const handleDaySelect = (day: DayData) => {
     setSelectedDay(day);
   }
@@ -42,7 +38,7 @@ export const GridContainer: React.FC = () => {
     <div>
       {selectedDay && <DetailsSidebar user={user} day={selectedDay} editable={authUser?.id === user?.id} onShouldClose={() => setSelectedDay(null)} />}
       <div className="container mx-auto">
-        <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDayCreate={handleDayCreate} onDaySelect={handleDaySelect} />
+        <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
       </div>
     </div>
   );
