@@ -1,12 +1,20 @@
 import { useState } from 'react';
 import { DayData } from '../../util/types/data-types';
 
+/**
+ * Day cell props.
+ */
 export interface DayCellProps extends React.HTMLProps<HTMLAnchorElement> {
   dayofmonth: number;
   hoverText: string;
   day: DayData;
 }
 
+/**
+ * Day cell component.
+ * 
+ * This component is a cell of the grid that contains a day.
+ */
 export const DayCell: React.FC<DayCellProps> = ({ dayofmonth, hoverText, day, children, ...rest }) => {
   const [showHoverText, setShowHoverText] = useState(false);
 

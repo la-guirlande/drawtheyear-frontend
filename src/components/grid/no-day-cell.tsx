@@ -1,10 +1,18 @@
 import { useState } from 'react';
 
+/**
+ * No day cell props.
+ */
 export interface NoDayCellProps extends React.HTMLProps<HTMLAnchorElement> {
   dayofmonth: number;
   hoverText: string;
 }
 
+/**
+ * No day cell component.
+ * 
+ * This component is a cell of the grid that contains an empty day.
+ */
 export const NoDayCell: React.FC<NoDayCellProps> = ({ dayofmonth, hoverText, children, ...rest }) => {
   const [showHoverText, setShowHoverText] = useState(false);
 

@@ -5,6 +5,9 @@ import { DayCell } from './day-cell';
 import { EmptyCell } from './empty-cell';
 import { NoDayCell } from './no-day-cell';
 
+/**
+ * Grid props.
+ */
 export type GridProps = {
   user: UserData;
   year?: number;
@@ -13,6 +16,11 @@ export type GridProps = {
   onDaySelect?(day: DayData): void;
 }
 
+/**
+ * Grid component.
+ * 
+ * This component is the grid.
+ */
 export const Grid: React.FC<GridProps> = ({ user, year, editable, onDayCreate, onDaySelect }) => {
 
   const generateColumn = (month: number) => {

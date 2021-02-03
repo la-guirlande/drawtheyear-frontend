@@ -8,12 +8,13 @@ import { AuthenticationContext } from '../contexts/authentication-context';
 import { DetailsSidebar } from './details-sidebar';
 import { Grid } from './grid';
 
-export interface GridPageParams {
-  username: string;
-}
-
+/**
+ * Grid container.
+ * 
+ * This container manages the grid.
+ */
 export const GridContainer: React.FC = () => {
-  const { username } = useParams<GridPageParams>();
+  const { username } = useParams<{ username: string; }>();
   const { authUser } = useContext(AuthenticationContext);
   const [user, setUser] = useState<UserData>(null);
   const [selectedDay, setSelectedDay] = useState<DayData>(null);
