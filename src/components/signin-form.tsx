@@ -10,7 +10,7 @@ export type SigninFormProps = {
 }
 
 export const SigninForm: React.FC<SigninFormProps> = ({ onSubmit }) => {
-  const { register, errors, handleSubmit } = useForm<SigninFormValues>({
+  const { errors, register, handleSubmit } = useForm<SigninFormValues>({
     defaultValues: { email: '', password: '' }
   });
 
