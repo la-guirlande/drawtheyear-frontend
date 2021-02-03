@@ -4,8 +4,8 @@ import { AuthenticationContextProvider } from './contexts/authentication-context
 import { GridPage } from './grid/grid-page';
 import { HomePage } from './home-page';
 import { Navbar } from './navbar/navbar';
-import { SigninPage } from './signin-page';
-import { SignupPage } from './signup-page';
+import { SigninPage } from './signin/signin-page';
+import { SignupPage } from './signup/signup-page';
 
 /**
  * App component.

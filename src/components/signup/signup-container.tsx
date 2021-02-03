@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import useFetch from '../hooks/fetch-hook';
-import { Config } from '../util/config';
-import { LocalStorageKey } from '../util/types/local-storage';
-import { CreationResponse, GetUserResponse, RefreshTokenResponse } from '../util/types/response-types';
-import { AuthenticationContext } from './contexts/authentication-context';
-import { SigninFormValues } from './signin-form';
+import useFetch from '../../hooks/fetch-hook';
+import { Config } from '../../util/config';
+import { LocalStorageKey } from '../../util/types/local-storage';
+import { CreationResponse, GetUserResponse, RefreshTokenResponse } from '../../util/types/response-types';
+import { AuthenticationContext } from '../contexts/authentication-context';
+import { SigninFormValues } from '../signin/signin-form';
 import { SignupForm, SignupFormValues } from './signup-form';
 
 /**
