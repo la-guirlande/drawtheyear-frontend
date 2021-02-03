@@ -16,6 +16,7 @@ export interface NoDayCellProps extends React.HTMLProps<HTMLAnchorElement> {
  * @param dayofmonth Day of the month
  * @param hoverText Text showed on hover
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const NoDayCell: React.FC<NoDayCellProps> = ({ dayofmonth, hoverText, children, ...rest }) => {
   const [showHoverText, setShowHoverText] = useState(false);
 

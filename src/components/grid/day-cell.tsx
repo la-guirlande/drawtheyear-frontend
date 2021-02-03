@@ -19,6 +19,7 @@ export interface DayCellProps extends React.HTMLProps<HTMLAnchorElement> {
  * @param hoverText Text showed on hover
  * @param day Day
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const DayCell: React.FC<DayCellProps> = ({ dayofmonth, hoverText, day, children, ...rest }) => {
   const [showHoverText, setShowHoverText] = useState(false);
 
