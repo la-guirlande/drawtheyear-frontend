@@ -1,9 +1,23 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import useFetch from '../../hooks/fetch-hook';
 import { Config } from '../../util/config';
 import { UserData } from '../../util/types/data-types'
 import { GetUserResponse } from '../../util/types/response-types';
-import { AuthenticationContext } from './authentication-context';
+
+/**
+ * Authentication context state.
+ */
+export type AuthenticationContextState = {
+  authUser: UserData;
+  setAuthUser(authUser: UserData): void;
+}
+
+/**
+ * Authentication context.
+ * 
+ * This context is used to manipulate the authenticated user.
+ */
+export const AuthenticationContext = React.createContext<AuthenticationContextState>({ authUser: null, setAuthUser: null });
 
 /**
  * Authentication context provider.
