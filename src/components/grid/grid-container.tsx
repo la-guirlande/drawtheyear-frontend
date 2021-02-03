@@ -8,12 +8,13 @@ import { AuthenticationContext } from '../contexts/authentication-context';
 import { DetailsSidebar } from './details-sidebar';
 import { Grid } from './grid';
 
-export interface GridPageParams {
-  username: string;
-}
-
+/**
+ * Grid container.
+ * 
+ * This container manages the grid.
+ */
 export const GridContainer: React.FC = () => {
-  const { username } = useParams<GridPageParams>();
+  const { username } = useParams<{ username: string; }>();
   const { authUser } = useContext(AuthenticationContext);
   const [user, setUser] = useState<UserData>(null);
   const [selectedDay, setSelectedDay] = useState<DayData>(null);
@@ -25,13 +26,9 @@ export const GridContainer: React.FC = () => {
     } else if (usersQueryState.data && usersQueryState.data.users.length >= 1) {
       setUser(usersQueryState.data.users[0]);
     } else {
-      console.log(usersQueryState.errors);
+      console.error(usersQueryState.errors);
     }
   }, [usersQueryState.fetched]);
-
-  const handleDayCreate = (dateStr: string) => {
-    console.log(dateStr);
-  }
 
   const handleDaySelect = (day: DayData) => {
     setSelectedDay(day);
@@ -41,7 +38,7 @@ export const GridContainer: React.FC = () => {
     <div>
       {selectedDay && <DetailsSidebar user={user} day={selectedDay} editable={authUser?.id === user?.id} onShouldClose={() => setSelectedDay(null)} />}
       <div className="container mx-auto">
-        <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDayCreate={handleDayCreate} onDaySelect={handleDaySelect} />
+        <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
       </div>
     </div>
   );

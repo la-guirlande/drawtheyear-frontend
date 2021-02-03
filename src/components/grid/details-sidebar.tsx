@@ -2,6 +2,9 @@ import { DayData, UserData } from '../../util/types/data-types';
 import { Button } from '../button';
 import { Icon } from '../icon';
 
+/**
+ * Details sidebar props.
+ */
 export interface DetailsSidebarProps {
   user: UserData;
   day: DayData;
@@ -9,6 +12,16 @@ export interface DetailsSidebarProps {
   onShouldClose?(): void;
 }
 
+/**
+ * Details sidebar component.
+ * 
+ * This component shows a day details.
+ * 
+ * @param user Details owner
+ * @param day Day to show
+ * @param editable True if the details sidebar is editable
+ * @param onShouldClose When the sidebar shoulds close
+ */
 export const DetailsSidebar: React.FC<DetailsSidebarProps> = ({ user, day, editable, onShouldClose }) => {
 
   const getDateName = () => {
