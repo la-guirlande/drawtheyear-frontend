@@ -5,10 +5,11 @@ import { Icon } from '../icon';
 export interface DetailSidebarProps {
   user: UserData;
   day: DayData;
+  editable?: boolean;
   onShouldClose?(): void;
 }
 
-export const DetailSidebar: React.FC<DetailSidebarProps> = ({ user, day, onShouldClose }) => {
+export const DetailSidebar: React.FC<DetailSidebarProps> = ({ user, day, editable, onShouldClose }) => {
 
   const getDateName = () => {
     const date = new Date(day.date);
@@ -78,11 +79,17 @@ export const DetailSidebar: React.FC<DetailSidebarProps> = ({ user, day, onShoul
         <div className="m-2 border-secondary-light border-2">
           <p className="p-2 text-justify">{getDescription(300)}</p>
         </div>
-        <div className="m-2 flex justify-between">
-          <Button className="bg-primary-dark hover:bg-primary" href={`/grid/${user.name}/day/${day.date}`}>Voir tous les détails</Button>
-          <Button className="bg-primary-dark hover:bg-primary" href={`/grid/${user.name}/day/${day.date}/modify`}>Modifier</Button>
-        </div>
+        {editable && (
+          <div className="m-2 flex justify-between">
+            <Button className="bg-primary-dark hover:bg-primary" href={`/grid/${user.name}/day/${day.date}`}>Voir tous les détails</Button>
+            <Button className="bg-primary-dark hover:bg-primary" href={`/grid/${user.name}/day/${day.date}/modify`}>Modifier</Button>
+          </div>
+        )}
       </div>
     </div>
   );
+}
+
+DetailSidebar.defaultProps = {
+  editable: false
 }
