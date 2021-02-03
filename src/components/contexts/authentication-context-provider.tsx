@@ -7,8 +7,6 @@ import { AuthenticationContext } from './authentication-context';
 
 /**
  * Authentication context provider.
- * 
- * @param props Props
  */
 export const AuthenticationContextProvider: React.FC = (props) => {
   const [authUser, setAuthUser] = useState<UserData>(null);
