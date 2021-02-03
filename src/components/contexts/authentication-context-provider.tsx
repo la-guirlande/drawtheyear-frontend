@@ -5,6 +5,11 @@ import { UserData } from '../../util/types/data-types'
 import { GetUserResponse } from '../../util/types/response-types';
 import { AuthenticationContext } from './authentication-context';
 
+/**
+ * Authentication context provider.
+ * 
+ * @param props Props
+ */
 export const AuthenticationContextProvider: React.FC = (props) => {
   const [authUser, setAuthUser] = useState<UserData>(null);
   const [userInfoQuery, userInfoQueryState] = useFetch<GetUserResponse>(`${Config.API_URL}/users/info`);
