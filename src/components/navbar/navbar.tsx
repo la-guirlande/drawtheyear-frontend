@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from '../button';
 import { AuthenticationContext } from '../contexts/authentication-context';
 import { Icon } from '../icon';
-import { NavLink } from './nav-link';
 import { NavMenu } from './nav-menu';
 
 /**
@@ -28,23 +28,25 @@ export const Navbar: React.FC = () => {
               </Link>
             </div>
             <div className="hidden md:block">
-              <NavMenu active="grid" />
+              <NavMenu />
             </div>
           </div>
           <div className="flex items-center">
-            <NavLink>
-              {authUser ? <a onClick={handleDisconnect}>Déconnexion</a> : <Link to="/signin">Connexion</Link>}
-            </NavLink>
+            {authUser ? (
+              <Button onClick={handleDisconnect}>Déconnexion</Button>
+            ) : (
+              <Button href="/signin">Connexion</Button>
+            )}
             <div className="md:hidden flex items-center">
-              <NavLink onClick={() => setDropdown(!dropdown)}>
+              <Button onClick={() => setDropdown(!dropdown)}>
                 <Icon type='dehaze' />
-              </NavLink>
+              </Button>
             </div>
           </div>
         </div>
         {dropdown && (
           <div className="md:hidden">
-            <NavMenu list active="grid" />
+            <NavMenu list />
           </div>
         )}
       </div>

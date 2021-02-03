@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Button } from '../button';
 import { AuthenticationContext } from '../contexts/authentication-context';
-import { NavLink } from './nav-link';
 
 /**
  * Nav menu component props.
  */
 interface NavMenuProps {
-  active?: null | 'grid' | 'stats';
   list?: boolean;
 }
 
@@ -24,36 +22,27 @@ export const NavMenu: React.FC<NavMenuProps> = (props) => {
     <ul className="list-outside">
       {authUser && (
         <li>
-          <NavLink active={props.active === 'grid'}>
-            <Link to={`/grid/${authUser.name}`}>Grille</Link>
-          </NavLink>
+          <Button href={`/grid/${authUser.name}`}>Grille</Button>
         </li>
       )}
       {authUser && (
         <li>
-          <NavLink active={props.active === 'stats'}>
-            <Link to="/stats">Statistiques</Link>
-          </NavLink>
+          <Button href="/stats">Statistiques</Button>
         </li>
       )}
     </ul>
   ) : (
       <div className="ml-10 flex items-baseline space-x-4">
         {authUser && (
-          <NavLink active={props.active === 'grid'}>
-            <Link to={`/grid/${authUser.name}`}>Grille</Link>
-          </NavLink>
+          <Button href={`/grid/${authUser.name}`}>Grille</Button>
         )}
         {authUser && (
-          <NavLink active={props.active === 'stats'}>
-            <Link to="/stats">Statistiques</Link>
-          </NavLink>
+          <Button href="/stats">Statistiques</Button>
         )}
       </div>
     );
 }
 
 NavMenu.defaultProps = {
-  active: null,
   list: false
 }
