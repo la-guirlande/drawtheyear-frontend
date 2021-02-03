@@ -26,16 +26,16 @@ export const Grid: React.FC<GridProps> = ({ user, year, editable, onDayCreate, o
     }
     return colDays.map(({ row, day }, i) => {
       if (cellNotDay(row, month)) {
-        return <NoDayCell key={`${month}-${i}`} />
+        return <EmptyCell key={`${month}-${i}`} />
       }
       if (day) {
         return <DayCell key={`${month}-${i}`} dayofmonth={row} day={day} hoverText="Détails" onClick={() => onDaySelect(day)} />
       }
       const dateStr = moment(`${year}-${month}-${row}`).format('YYYY-MM-DD');
       if (editable) {
-        return <EmptyCell key={`${month}-${i}`} dayofmonth={row} hoverText="Créer" href={`/grid/${user.name}/day/add?date=${dateStr}`} onClick={() => onDayCreate(dateStr)} />
+        return <NoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="Créer" href={`/grid/${user.name}/day/add?date=${dateStr}`} onClick={() => onDayCreate(dateStr)} />
       }
-      return <EmptyCell key={`${month}-${i}`} dayofmonth={row} hoverText="-----" onClick={() => onDayCreate(dateStr)} />
+      return <NoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="-----" onClick={() => onDayCreate(dateStr)} />
     });
   }
 
