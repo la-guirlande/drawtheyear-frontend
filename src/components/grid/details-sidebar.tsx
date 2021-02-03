@@ -2,14 +2,14 @@ import { DayData, UserData } from '../../util/types/data-types';
 import { Button } from '../button';
 import { Icon } from '../icon';
 
-export interface DetailSidebarProps {
+export interface DetailsSidebarProps {
   user: UserData;
   day: DayData;
   editable?: boolean;
   onShouldClose?(): void;
 }
 
-export const DetailSidebar: React.FC<DetailSidebarProps> = ({ user, day, editable, onShouldClose }) => {
+export const DetailsSidebar: React.FC<DetailsSidebarProps> = ({ user, day, editable, onShouldClose }) => {
 
   const getDateName = () => {
     const date = new Date(day.date);
@@ -90,6 +90,6 @@ export const DetailSidebar: React.FC<DetailSidebarProps> = ({ user, day, editabl
   );
 }
 
-DetailSidebar.defaultProps = {
+DetailsSidebar.defaultProps = {
   editable: false
 }

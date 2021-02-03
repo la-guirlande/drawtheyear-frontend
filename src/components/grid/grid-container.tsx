@@ -4,7 +4,7 @@ import useFetch from '../../hooks/fetch-hook';
 import { Config } from '../../util/config';
 import { DayData, UserData } from '../../util/types/data-types';
 import { GetUsersResponse } from '../../util/types/response-types';
-import { DetailSidebar } from './detail-sidebar';
+import { DetailsSidebar } from './details-sidebar';
 import { Grid } from './grid';
 
 export interface GridPageParams {
@@ -37,7 +37,7 @@ export const GridContainer: React.FC = () => {
 
   return user && (
     <div>
-      {selectedDay && <DetailSidebar user={user} day={selectedDay} onShouldClose={() => setSelectedDay(null)} />}
+      {selectedDay && <DetailsSidebar user={user} day={selectedDay} onShouldClose={() => setSelectedDay(null)} />}
       <div className="container mx-auto">
         <Grid user={user} year={2020} onDayCreate={handleDayCreate} onDaySelect={handleDaySelect} />
       </div>
