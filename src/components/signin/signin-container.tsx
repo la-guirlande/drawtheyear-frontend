@@ -35,12 +35,17 @@ export const SigninContainer: React.FC = () => {
     if (userInfoQueryState.fetched) {
       if (userInfoQueryState.data) {
         authenticationContext.setAuthUser(userInfoQueryState.data.user);
-        history.goBack();
       } else {
         console.error(userInfoQueryState.errors);
       }
     }
   }, [userInfoQueryState.fetched]);
+
+  useEffect(() => {
+    if (authenticationContext.authUser) {
+      history.goBack();
+    }
+  }, [authenticationContext.authUser]);
 
   const handleSubmitSigninForm = (data: SigninFormValues) => {
     refreshTokenQuery.post(null, data);
