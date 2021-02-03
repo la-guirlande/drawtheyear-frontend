@@ -14,6 +14,10 @@ export interface DayCellProps extends React.HTMLProps<HTMLAnchorElement> {
  * Day cell component.
  * 
  * This component is a cell of the grid that contains a day.
+ * 
+ * @param dayofmonth Day of the month
+ * @param hoverText Text showed on hover
+ * @param day Day
  */
 export const DayCell: React.FC<DayCellProps> = ({ dayofmonth, hoverText, day, children, ...rest }) => {
   const [showHoverText, setShowHoverText] = useState(false);

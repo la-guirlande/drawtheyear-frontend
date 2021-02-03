@@ -16,6 +16,11 @@ export interface DetailsSidebarProps {
  * Details sidebar component.
  * 
  * This component shows a day details.
+ * 
+ * @param user Details owner
+ * @param day Day to show
+ * @param editable True if the details sidebar is editable
+ * @param onShouldClose When the sidebar shoulds close
  */
 export const DetailsSidebar: React.FC<DetailsSidebarProps> = ({ user, day, editable, onShouldClose }) => {
 

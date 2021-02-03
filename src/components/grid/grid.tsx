@@ -20,6 +20,12 @@ export type GridProps = {
  * Grid component.
  * 
  * This component is the grid.
+ * 
+ * @param user Grid owner
+ * @param year Year to show
+ * @param editable Trus if the grid is editable
+ * @param onDayCreate When a no day cell is clicked
+ * @param onDaySelect When a day cell is clicked
  */
 export const Grid: React.FC<GridProps> = ({ user, year, editable, onDayCreate, onDaySelect }) => {
 

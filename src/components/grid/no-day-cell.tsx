@@ -12,6 +12,9 @@ export interface NoDayCellProps extends React.HTMLProps<HTMLAnchorElement> {
  * No day cell component.
  * 
  * This component is a cell of the grid that contains an empty day.
+ * 
+ * @param dayofmonth Day of the month
+ * @param hoverText Text showed on hover
  */
 export const NoDayCell: React.FC<NoDayCellProps> = ({ dayofmonth, hoverText, children, ...rest }) => {
   const [showHoverText, setShowHoverText] = useState(false);
