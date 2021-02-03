@@ -17,8 +17,6 @@ export const HomePage: React.FC = () => (
           <h2 className="text-2xl">Activity</h2>
         </div>
       </div>
-      <hr className="my-3 bg-light"></hr>
-      <Footer />
     </div>
   </div>
 )
