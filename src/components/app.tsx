@@ -15,7 +15,7 @@ const App: React.FC = () => (
                     <Navbar />
                     <HomePage />
                 </Route>
-                <Route exact path="/grid">
+                <Route exact path="/grid/:username">
                     <Navbar />
                     <GridPage />
                 </Route>
