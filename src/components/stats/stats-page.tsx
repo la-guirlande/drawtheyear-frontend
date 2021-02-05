@@ -1,5 +1,7 @@
 import { StatsContainer } from './stats-container';
 
 export const StatsPage: React.FC = () => (
-  <StatsContainer />
+  <div className="mt-3">
+    <StatsContainer />
+  </div>
 )
