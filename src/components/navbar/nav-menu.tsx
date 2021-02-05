@@ -1,13 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { NavLink } from './nav-link';
+import React, { useContext } from 'react';
+import { Button } from '../button';
+import { AuthenticationContext } from '../contexts/authentication-context';
 
 /**
  * Nav menu component props.
  */
 interface NavMenuProps {
-    active?: null | 'grid' | 'stats';
-    list?: boolean;
+  list?: boolean;
 }
 
 /**
@@ -17,32 +16,33 @@ interface NavMenuProps {
  * @param list True to render menu as list
  */
 export const NavMenu: React.FC<NavMenuProps> = (props) => {
-    return props.list ? (
-        <ul className="list-outside">
-            <li>
-                <NavLink active={props.active === 'grid'}>
-                    <Link to="/grid">Grille</Link>
-                </NavLink>
-            </li>
-            <li>
-                <NavLink active={props.active === 'stats'}>
-                    <Link to="/stats">Statistiques</Link>
-                </NavLink>
-            </li>
-        </ul>
-    ) : (
-        <div className="ml-10 flex items-baseline space-x-4">
-            <NavLink active={props.active === 'grid'}>
-                <Link to="/grid">Grille</Link>
-            </NavLink>
-            <NavLink active={props.active === 'stats'}>
-                <Link to="/stats">Statistiques</Link>
-            </NavLink>
-        </div>
+  const { authUser } = useContext(AuthenticationContext);
+
+  return props.list ? (
+    <ul className="list-outside">
+      {authUser && (
+        <li>
+          <Button href={`/grid/${authUser.name}`}>Grille</Button>
+        </li>
+      )}
+      {authUser && (
+        <li>
+          <Button href="/stats">Statistiques</Button>
+        </li>
+      )}
+    </ul>
+  ) : (
+      <div className="ml-10 flex items-baseline space-x-4">
+        {authUser && (
+          <Button href={`/grid/${authUser.name}`}>Grille</Button>
+        )}
+        {authUser && (
+          <Button href="/stats">Statistiques</Button>
+        )}
+      </div>
     );
 }
 
 NavMenu.defaultProps = {
-    active: null,
-    list: false
+  list: false
 }

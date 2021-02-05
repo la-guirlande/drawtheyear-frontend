@@ -1,22 +1,21 @@
 import React from 'react';
-import { Footer } from './footer';
 import { Header } from './header';
 
 /**
  * Home page component.
  */
 export const HomePage: React.FC = () => (
+  <div className="mt-3">
     <div className="container mx-auto">
-        <Header />
-        <div className="h-48 flex flex-wrap content-center">
-            <div className="w-full md:w-1/2 mb-5 md:mb-0 text-center">
-                <h2 className="text-2xl">News</h2>
-            </div>
-            <div className="w-full md:w-1/2 text-center">
-                <h2 className="text-2xl">Activity</h2>
-            </div>
+      <Header />
+      <div className="h-48 flex flex-wrap content-center">
+        <div className="w-full md:w-1/2 mb-5 md:mb-0 text-center">
+          <h2 className="text-2xl">News</h2>
         </div>
-        <hr className="my-3 bg-light"></hr>
-        <Footer />
+        <div className="w-full md:w-1/2 text-center">
+          <h2 className="text-2xl">Activity</h2>
+        </div>
+      </div>
     </div>
+  </div>
 )

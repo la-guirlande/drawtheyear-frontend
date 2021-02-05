@@ -1,5 +1,10 @@
 import { SigninContainer } from './signin-container';
 
+/**
+ * Signin page.
+ */
 export const SigninPage: React.FC = () => (
-  <SigninContainer />
+  <div className="mt-3">
+    <SigninContainer />
+  </div>
 )
