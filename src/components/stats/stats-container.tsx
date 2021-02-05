@@ -20,13 +20,15 @@ export const StatsContainer: React.FC = () => {
   }, [authUser]);
 
   useEffect(() => {
-    setMonthData(authUser.emotions.map(emotion => ({
-      id: emotion.name,
-      label: emotion.name,
-      color: emotion.color,
-      value: authUser.days.filter(day => new Date(day.date).getMonth() === month && day.emotions.map(emotion => emotion.id).includes(emotion.id)).length
-    })));
-  }, [month]);
+    if (authUser) {
+      setMonthData(authUser.emotions.map(emotion => ({
+        id: emotion.name,
+        label: emotion.name,
+        color: emotion.color,
+        value: authUser.days.filter(day => new Date(day.date).getMonth() === month && day.emotions.map(emotion => emotion.id).includes(emotion.id)).length
+      })));
+    }
+  }, [authUser, month]);
 
   return authUser && (
     <div className="container h-screen">
