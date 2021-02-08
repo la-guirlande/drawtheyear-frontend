@@ -8,6 +8,7 @@ export type IconType
   | 'close'
   | 'dehaze'
   | 'home'
+  | 'keyboard_arrow_left'
   | 'keyboard_arrow_right';
 
 /**
