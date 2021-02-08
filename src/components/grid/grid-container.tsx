@@ -5,7 +5,7 @@ import { Config } from '../../util/config';
 import { DayData, UserData } from '../../util/types/data-types';
 import { GetUsersResponse } from '../../util/types/response-types';
 import { AuthenticationContext } from '../contexts/authentication-context';
-import { DetailsSidebar } from './details-sidebar';
+import { DetailsSidebar } from './details-bar';
 import { Grid } from './grid';
 
 /**
