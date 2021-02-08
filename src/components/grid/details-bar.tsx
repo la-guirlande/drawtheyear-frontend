@@ -1,5 +1,7 @@
+import React from 'react';
 import { DayData, UserData } from '../../util/types/data-types';
 import utils from '../../util/utils';
+import { Badge } from '../badge';
 import { Button } from '../button';
 import { Icon } from '../icon';
 
@@ -35,9 +37,9 @@ export const DetailsBar: React.FC<DetailsBarProps> = ({ user, day, editable, onS
   }
 
   return (
-    <div className="fixed top-3/4 w-full h-1/4 z-20 bg-secondary-dark shadow-big rounded-t-lg">
+    <div className="fixed top-2/3 w-full h-1/3 z-20 bg-secondary-dark shadow-big rounded-t-lg">
       <div className="m-2 flex justify-between">
-        <div></div>
+        <Icon type="event_note" />
         <div className="flex justify-center items-center">
           <h1 className="order-2 text-lg lg:text-xl">Détails du {getDateName()}</h1>
           <Button className="order-1" onClick={() => onPreviousClick(day)}>
@@ -52,6 +54,11 @@ export const DetailsBar: React.FC<DetailsBarProps> = ({ user, day, editable, onS
         </Button>
       </div>
       <div className="px-5">
+        <div className="flex flex-wrap justify-center gap-4 content-center">
+          {day.emotions.map((emotion, i) => (
+            <Badge key={i} style={{ backgroundColor: emotion.color }}>{emotion.name}</Badge>
+          ))}
+        </div>
         <div className="m-2 p-2 border-secondary-light border-2">
           <p className="text-justify clamp-3">{day.description || 'Aucune description'}</p>
         </div>
