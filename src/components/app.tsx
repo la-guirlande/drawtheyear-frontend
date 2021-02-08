@@ -7,6 +7,7 @@ import { HomePage } from './home-page';
 import { Navbar } from './navbar/navbar';
 import { SigninPage } from './signin/signin-page';
 import { SignupPage } from './signup/signup-page';
+import { StatsPage } from './stats/stats-page';
 
 /**
  * App component.
@@ -24,7 +25,9 @@ const App: React.FC = () => (
         <Route exact path="/grid/:username">
           <GridPage />
         </Route>
-        <Route exact path="/stats"></Route>
+        <Route exact path="/stats">
+          <StatsPage />
+        </Route>
         <Route exact path="/signin">
           <SigninPage />
         </Route>
