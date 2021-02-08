@@ -5,7 +5,7 @@ import { Config } from '../../util/config';
 import { DayData, UserData } from '../../util/types/data-types';
 import { GetUsersResponse } from '../../util/types/response-types';
 import { AuthenticationContext } from '../contexts/authentication-context';
-import { DetailsSidebar } from './details-sidebar';
+import { DetailsBar } from './details-bar';
 import { Grid } from './grid';
 
 /**
@@ -34,9 +34,39 @@ export const GridContainer: React.FC = () => {
     setSelectedDay(day);
   }
 
+  const handlePreviousDay = (day: DayData) => {
+    if (authUser) {
+      const prevDay = authUser.days.find(currentDay => {
+        const currentDayDate = new Date(currentDay.date);
+        const dayDate = new Date(day.date);
+        dayDate.setDate(dayDate.getDate() - 1);
+        if (currentDayDate.getTime() === dayDate.getTime()) {
+          return true;
+        }
+        return false;
+      });
+      setSelectedDay(prevDay);
+    }
+  }
+
+  const handleNextDay = (day: DayData) => {
+    if (authUser) {
+      const prevDay = authUser.days.find(currentDay => {
+        const currentDayDate = new Date(currentDay.date);
+        const dayDate = new Date(day.date);
+        dayDate.setDate(dayDate.getDate() + 1);
+        if (currentDayDate.getTime() === dayDate.getTime()) {
+          return true;
+        }
+        return false;
+      });
+      setSelectedDay(prevDay);
+    }
+  }
+
   return user && (
     <div>
-      {selectedDay && <DetailsSidebar user={user} day={selectedDay} editable={authUser?.id === user?.id} onShouldClose={() => setSelectedDay(null)} />}
+      {selectedDay && <DetailsBar user={user} day={selectedDay} editable={authUser?.id === user?.id} onShouldClose={() => setSelectedDay(null)} onPreviousClick={handlePreviousDay} onNextClick={handleNextDay} />}
       <div className="container mx-auto">
         <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
       </div>
