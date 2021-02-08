@@ -23,7 +23,7 @@ export interface DayCellProps extends React.HTMLProps<HTMLAnchorElement> {
 export const DayCell: React.FC<DayCellProps> = ({ dayofmonth, hoverText, day, children, ...rest }) => {
   const [showHoverText, setShowHoverText] = useState(false);
 
-  const background = useMemo<CSSProperties>(() => {
+  const style = useMemo<CSSProperties>(() => {
     if (day.emotions.length === 1) {
       return {
         backgroundColor: day.emotions[0].color
@@ -45,7 +45,7 @@ export const DayCell: React.FC<DayCellProps> = ({ dayofmonth, hoverText, day, ch
 
   return (
     <div className="z-0 relative transition duration-500 ease-in-out transform hover:z-10 hover:scale-125" onMouseEnter={toggleDetail} onMouseLeave={toggleDetail}>
-      <a className="w-auto flex items-center justify-center h-8 border border-solid border-black rounded text-center cursor-pointer" style={background} {...rest}>
+      <a className="w-auto flex items-center justify-center h-8 border border-solid border-black rounded text-center cursor-pointer" style={style} {...rest}>
         <span className="text-shadow-cell">{showHoverText ? hoverText : dayofmonth}</span>
       </a>
     </div>
