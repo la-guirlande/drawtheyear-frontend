@@ -7,6 +7,7 @@ export type IconType
   = 'cloud'
   | 'close'
   | 'dehaze'
+  | 'event_note'
   | 'home'
   | 'keyboard_arrow_left'
   | 'keyboard_arrow_right';
