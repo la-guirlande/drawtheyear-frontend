@@ -6,11 +6,13 @@ import { Icon } from '../icon';
 /**
  * Details sidebar props.
  */
-export interface DetailsSidebarProps {
+export interface DetailsBarProps {
   user: UserData;
   day: DayData;
   editable?: boolean;
   onShouldClose?(): void;
+  onPreviousClick?(day: DayData): void;
+  onNextClick?(day: DayData): void;
 }
 
 /**
@@ -22,8 +24,10 @@ export interface DetailsSidebarProps {
  * @param day Day to show
  * @param editable True if the details sidebar is editable
  * @param onShouldClose When the sidebar shoulds close
+ * @param onPreviousClick When the previous day arrow is clicked
+ * @param onNextClick When the next day arrow is clicked
  */
-export const DetailsSidebar: React.FC<DetailsSidebarProps> = ({ user, day, editable, onShouldClose }) => {
+export const DetailsBar: React.FC<DetailsBarProps> = ({ user, day, editable, onShouldClose, onPreviousClick, onNextClick }) => {
 
   const getDateName = () => {
     const date = new Date(day.date);
@@ -36,10 +40,10 @@ export const DetailsSidebar: React.FC<DetailsSidebarProps> = ({ user, day, edita
         <div></div>
         <div className="flex justify-center items-center">
           <h1 className="order-2 text-lg lg:text-xl">Détails du {getDateName()}</h1>
-          <Button className="order-1" onClick={() => console.log('prev')}>
+          <Button className="order-1" onClick={() => onPreviousClick(day)}>
             <Icon type="keyboard_arrow_left" />
           </Button>
-          <Button className="order-3" onClick={() => console.log('next')}>
+          <Button className="order-3" onClick={() => onNextClick(day)}>
             <Icon type="keyboard_arrow_right" />
           </Button>
         </div>
@@ -62,6 +66,6 @@ export const DetailsSidebar: React.FC<DetailsSidebarProps> = ({ user, day, edita
   );
 }
 
-DetailsSidebar.defaultProps = {
+DetailsBar.defaultProps = {
   editable: false
 }
