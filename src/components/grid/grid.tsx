@@ -58,51 +58,51 @@ export const Grid: React.FC<GridProps> = ({ user, year, editable, onDaySelect })
   return (
     <div className="grid grid-cols-12">
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Janvier</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Janvier</div>
         {generateColumn(0)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Février</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Février</div>
         {generateColumn(1)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Mars</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Mars</div>
         {generateColumn(2)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Avril</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Avril</div>
         {generateColumn(3)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Mai</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Mai</div>
         {generateColumn(4)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Juin</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Juin</div>
         {generateColumn(5)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Juillet</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Juillet</div>
         {generateColumn(6)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Août</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Août</div>
         {generateColumn(7)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Septembre</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Septembre</div>
         {generateColumn(8)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Octobre</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Octobre</div>
         {generateColumn(9)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Novembre</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Novembre</div>
         {generateColumn(10)}
       </div>
       <div>
-        <div className="my-5 text-center text-primary transform -rotate-45">Décembre</div>
+        <div className="mb-7 text-center text-primary transform -rotate-45">Décembre</div>
         {generateColumn(11)}
       </div>
     </div>

@@ -4,6 +4,7 @@ import useFetch from '../../hooks/fetch-hook';
 import { Config } from '../../util/config';
 import { DayData, UserData } from '../../util/types/data-types';
 import { GetUsersResponse } from '../../util/types/response-types';
+import { Badge } from '../badge';
 import { AuthenticationContext } from '../contexts/authentication-context';
 import { DetailsBar } from './details-bar';
 import { Grid } from './grid';
@@ -68,7 +69,14 @@ export const GridContainer: React.FC = () => {
     <div>
       {selectedDay && <DetailsBar user={user} day={selectedDay} editable={authUser?.id === user?.id} onShouldClose={() => setSelectedDay(null)} onPreviousClick={handlePreviousDay} onNextClick={handleNextDay} />}
       <div className="container mx-auto">
-        <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
+        <div className="my-6">
+          <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
+        </div>
+        <div className="flex flex-wrap justify-center gap-4 content-center">
+          {user.emotions.map((emotion, i) => (
+            <Badge key={i} style={{ backgroundColor: emotion.color }}>{emotion.name}</Badge>
+          ))}
+        </div>
       </div>
     </div>
   );
