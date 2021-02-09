@@ -4,29 +4,29 @@ import { DayData, ErrorData, UserData } from './data-types';
  * Base API response interface.
  */
 export interface Response {
-    [key: string]: unknown;
+  [key: string]: unknown;
 }
 
 /**
  * Error response interface.
  */
 export interface ErrorResponse extends Response {
-    errors: ErrorData[];
+  errors: ErrorData[];
 }
 
 /**
  * Access token response interface.
  */
 export interface AccessTokenResponse extends Response {
-    access_token: string;
+  access_token: string;
 }
 
 /**
  * Refresh token response interface.
  */
 export interface RefreshTokenResponse extends Response {
-    access_token: string;
-    refresh_token: string;
+  access_token: string;
+  refresh_token: string;
 }
 
 /**
@@ -35,7 +35,7 @@ export interface RefreshTokenResponse extends Response {
  * This API response is returned by any `POST` that creates a new resource.
  */
 export interface CreationResponse extends Response {
-    id: string;
+  id: string;
 }
 
 /**
@@ -44,7 +44,7 @@ export interface CreationResponse extends Response {
  * This response is returned by `GET /users`.
  */
 export interface GetUsersResponse extends Response {
-    users: UserData[];
+  users: UserData[];
 }
 
 /**
@@ -53,7 +53,7 @@ export interface GetUsersResponse extends Response {
  * This response is returned by `GET /users/:id`.
  */
 export interface GetUserResponse extends Response {
-    user: UserData;
+  user: UserData;
 }
 
 /**
@@ -62,7 +62,7 @@ export interface GetUserResponse extends Response {
  * This response is returned by `GET /users/:id/days`.
  */
 export interface GetDaysResponse extends Response {
-    days: DayData[];
+  days: DayData[];
 }
 
 /**
@@ -71,5 +71,5 @@ export interface GetDaysResponse extends Response {
  * This response is returned by `GET /users/:id/days/:date`.
  */
 export interface GetDayResponse extends Response {
-    day: DayData;
+  day: DayData;
 }

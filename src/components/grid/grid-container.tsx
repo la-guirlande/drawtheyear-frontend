@@ -4,16 +4,18 @@ import useFetch from '../../hooks/fetch-hook';
 import { Config } from '../../util/config';
 import { DayData, UserData } from '../../util/types/data-types';
 import { GetUsersResponse } from '../../util/types/response-types';
+import { Badge } from '../badge';
 import { AuthenticationContext } from '../contexts/authentication-context';
-import { DetailsSidebar } from './details-sidebar';
+import { DetailsBar } from './details-bar';
 import { Grid } from './grid';
 
-export interface GridPageParams {
-  username: string;
-}
-
+/**
+ * Grid container.
+ * 
+ * This container manages the grid.
+ */
 export const GridContainer: React.FC = () => {
-  const { username } = useParams<GridPageParams>();
+  const { username } = useParams<{ username: string; }>();
   const { authUser } = useContext(AuthenticationContext);
   const [user, setUser] = useState<UserData>(null);
   const [selectedDay, setSelectedDay] = useState<DayData>(null);
@@ -25,23 +27,56 @@ export const GridContainer: React.FC = () => {
     } else if (usersQueryState.data && usersQueryState.data.users.length >= 1) {
       setUser(usersQueryState.data.users[0]);
     } else {
-      console.log(usersQueryState.errors);
+      console.error(usersQueryState.errors);
     }
   }, [usersQueryState.fetched]);
-
-  const handleDayCreate = (dateStr: string) => {
-    console.log(dateStr);
-  }
 
   const handleDaySelect = (day: DayData) => {
     setSelectedDay(day);
   }
 
+  const handlePreviousDay = (day: DayData) => {
+    if (authUser) {
+      const prevDay = authUser.days.find(currentDay => {
+        const currentDayDate = new Date(currentDay.date);
+        const dayDate = new Date(day.date);
+        dayDate.setDate(dayDate.getDate() - 1);
+        if (currentDayDate.getTime() === dayDate.getTime()) {
+          return true;
+        }
+        return false;
+      });
+      setSelectedDay(prevDay);
+    }
+  }
+
+  const handleNextDay = (day: DayData) => {
+    if (authUser) {
+      const prevDay = authUser.days.find(currentDay => {
+        const currentDayDate = new Date(currentDay.date);
+        const dayDate = new Date(day.date);
+        dayDate.setDate(dayDate.getDate() + 1);
+        if (currentDayDate.getTime() === dayDate.getTime()) {
+          return true;
+        }
+        return false;
+      });
+      setSelectedDay(prevDay);
+    }
+  }
+
   return user && (
     <div>
-      {selectedDay && <DetailsSidebar user={user} day={selectedDay} editable={authUser?.id === user?.id} onShouldClose={() => setSelectedDay(null)} />}
+      {selectedDay && <DetailsBar user={user} day={selectedDay} editable={authUser?.id === user?.id} onShouldClose={() => setSelectedDay(null)} onPreviousClick={handlePreviousDay} onNextClick={handleNextDay} />}
       <div className="container mx-auto">
-        <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDayCreate={handleDayCreate} onDaySelect={handleDaySelect} />
+        <div className="my-6">
+          <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
+        </div>
+        <div className="flex flex-wrap justify-center gap-4 content-center">
+          {user.emotions.map((emotion, i) => (
+            <Badge key={i} style={{ backgroundColor: emotion.color }}>{emotion.name}</Badge>
+          ))}
+        </div>
       </div>
     </div>
   );

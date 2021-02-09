@@ -1,12 +1,18 @@
 import { useContext, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import useFetch from '../hooks/fetch-hook';
-import { Config } from '../util/config';
-import { LocalStorageKey } from '../util/types/local-storage';
-import { GetUserResponse, RefreshTokenResponse } from '../util/types/response-types';
-import { AuthenticationContext } from './contexts/authentication-context';
+import { useHistory } from 'react-router-dom';
+import useFetch from '../../hooks/fetch-hook';
+import { Config } from '../../util/config';
+import { LocalStorageKey } from '../../util/types/local-storage';
+import { GetUserResponse, RefreshTokenResponse } from '../../util/types/response-types';
+import { Button } from '../button';
+import { AuthenticationContext } from '../contexts/authentication-context';
 import { SigninForm, SigninFormValues } from './signin-form';
 
+/**
+ * Signin container.
+ * 
+ * This container manages the signin system.
+ */
 export const SigninContainer: React.FC = () => {
   const [refreshTokenQuery, refreshTokenQueryState] = useFetch<RefreshTokenResponse>(`${Config.API_URL}/auth/refreshToken`);
   const [userInfoQuery, userInfoQueryState] = useFetch<GetUserResponse>(`${Config.API_URL}/users/info`);
@@ -20,7 +26,7 @@ export const SigninContainer: React.FC = () => {
         localStorage.setItem(LocalStorageKey.ACCESS_TOKEN, refreshTokenQueryState.data.access_token);
         userInfoQuery.get();
       } else {
-        console.log(refreshTokenQueryState.errors);
+        console.error(refreshTokenQueryState.errors);
       }
     }
   }, [refreshTokenQueryState.fetched]);
@@ -29,12 +35,17 @@ export const SigninContainer: React.FC = () => {
     if (userInfoQueryState.fetched) {
       if (userInfoQueryState.data) {
         authenticationContext.setAuthUser(userInfoQueryState.data.user);
-        history.goBack();
       } else {
-        console.log(userInfoQueryState.errors);
+        console.error(userInfoQueryState.errors);
       }
     }
   }, [userInfoQueryState.fetched]);
+
+  useEffect(() => {
+    if (authenticationContext.authUser) {
+      history.goBack();
+    }
+  }, [authenticationContext.authUser]);
 
   const handleSubmitSigninForm = (data: SigninFormValues) => {
     refreshTokenQuery.post(null, data);
@@ -43,7 +54,7 @@ export const SigninContainer: React.FC = () => {
   return (
     <>
       <SigninForm onSubmit={handleSubmitSigninForm} />
-      <Link to="/signup">Inscription</Link>
+      <Button href="/signup">Inscription</Button>
     </>
   );
 }
