@@ -29,7 +29,7 @@ export const DayCell: React.FC<DayCellProps> = ({ dayofmonth, hoverText, day, ch
         backgroundColor: day.emotions[0].color
       };
     }
-    let bgColor = 'linear-gradient(90deg, ';
+    let bgColor = 'linear-gradient(150deg, ';
     for (let i = 0; i < day.emotions.length; i++) {
       const isLast = i == (day.emotions.length - 1);
       const percent = i * 100 / (day.emotions.length - 1);
