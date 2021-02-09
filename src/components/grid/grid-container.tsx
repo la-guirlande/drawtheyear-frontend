@@ -1,10 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/fetch-hook';
 import { Config } from '../../util/config';
 import { DayData, UserData } from '../../util/types/data-types';
 import { GetUsersResponse } from '../../util/types/response-types';
+import { Button } from '../button';
 import { AuthenticationContext } from '../contexts/authentication-context';
+import { Monthly } from '../views/monthly/monthly';
 import { DetailsSidebar } from './details-sidebar';
 import { Grid } from './grid';
 
@@ -18,6 +20,7 @@ export const GridContainer: React.FC = () => {
   const { authUser } = useContext(AuthenticationContext);
   const [user, setUser] = useState<UserData>(null);
   const [selectedDay, setSelectedDay] = useState<DayData>(null);
+  const [showMonthlyView, setShowMonthlyView] = useState<boolean>(false);
   const [usersQuery, usersQueryState] = useFetch<GetUsersResponse>(`${Config.API_URL}/users?name=${username}`);
 
   useEffect(() => {
@@ -34,11 +37,24 @@ export const GridContainer: React.FC = () => {
     setSelectedDay(day);
   }
 
+  /**
+   * Show view or grid.
+   */
+  const handleChangeView = () => {
+    setShowMonthlyView(!showMonthlyView);
+  }
+
   return user && (
     <div>
+      <button onClick={handleChangeView} type="button" className="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-primary-light hover:bg-primary-dark text-white font-normal py-2 px-4 mr-1 rounded">View / Grid</button>
       {selectedDay && <DetailsSidebar user={user} day={selectedDay} editable={authUser?.id === user?.id} onShouldClose={() => setSelectedDay(null)} />}
       <div className="container mx-auto">
-        <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
+        {/* J'ai ajouté un bouton pour switch entre les vues. */}
+        {showMonthlyView ?
+          <Monthly user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
+          :
+          <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
+        }
       </div>
     </div>
   );

@@ -13,65 +13,19 @@ export const MonthlyCalendar: React.FC<MonthlyCalendarProps> = (props) => {
 
     // TODO Margin left
 
-
     return (
         <div>
             <div className="w-full inline-block p-20">
                 <div className="grid grid-flow-row auto-rows-max">
                     <h1 className="text-secondary">MOIS</h1>
                     <div className="ml-10">
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
+                        
                     </div>
-
                     <div>
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                    </div>
 
-                    <div className="ml-10">
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                    </div>
-
-                    <div>
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                    </div>
-
-                    <div className="ml-10">
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                    </div>
-
-                    <div>
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                        <MonthlyDay />
-                    </div>
-
-                    <div className="ml-10">
-                        <MonthlyDay />
                     </div>
                 </div>
-            </div>                  
+            </div>
         </div>
     )
 }
