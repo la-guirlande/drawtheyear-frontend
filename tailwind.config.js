@@ -26,6 +26,14 @@ module.exports = {
         light: '#fff4e4',
         dark: '#3d0e1e'
       },
+      width: {
+        '1/2-screen': '50vw',
+        '1/4-screen': '25vw',
+      },
+      height: {
+        '1/2-screen': '50vh',
+        '1/4-screen': '25vh',
+      },
       boxShadow: {
         big: '25px 0 50px -12px rgba(0, 0, 0, 0.75);'
       },
