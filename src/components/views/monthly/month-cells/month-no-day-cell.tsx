@@ -3,7 +3,7 @@ import { useState } from 'react';
 /**
  * No day cell props.
  */
-export interface MonthlyNoDayCellProps extends React.HTMLProps<HTMLAnchorElement> {
+export interface MonthNoDayCellProps extends React.HTMLProps<HTMLAnchorElement> {
   dayofmonth: number;
   hoverText: string;
 }
@@ -17,7 +17,7 @@ export interface MonthlyNoDayCellProps extends React.HTMLProps<HTMLAnchorElement
  * @param hoverText Text showed on hover
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const MonthlyNoDayCell: React.FC<MonthlyNoDayCellProps> = ({ dayofmonth, hoverText, children, ...rest }) => {
+export const MonthNoDayCell: React.FC<MonthNoDayCellProps> = ({ dayofmonth, hoverText, children, ...rest }) => {
   const [showHoverText, setShowHoverText] = useState(false);
 
   const toggleCreate = () => setShowHoverText(!showHoverText);

@@ -1,15 +1,15 @@
 import moment from 'moment';
 import React from 'react';
 import { DayData, UserData } from '../../../util/types/data-types';
-import { MonthlyDay } from './monthly-day';
-import { MonthlyEmptyCell } from './monthly-empty-cell';
-import { MonthlyMonth } from './monthly-month';
-import { MonthlyNoDayCell } from './monthly-no-day-cell';
+import { MonthDayCell } from './month-cells/month-day-cell';
+import { MonthEmptyCell } from './month-cells/month-empty-cell';
+import { MonthHeader } from './month-header';
+import { MonthNoDayCell } from './month-cells/month-no-day-cell';
 
 /**
  * Grid props.
  */
-export type MonthlyProps = {
+export type ViewMonthProps = {
     user: UserData;
     year?: number;
     editable?: boolean;
@@ -26,7 +26,7 @@ export type MonthlyProps = {
  * @param editable Trus if the grid is editable
  * @param onDaySelect When a day cell is clicked
  */
-export const Monthly: React.FC<MonthlyProps> = ({ user, year, editable, onDaySelect }) => {
+export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDaySelect }) => {
     // On lui donne le numéro du mois.
     const generateCalendar = (month: number) => {
 
@@ -41,16 +41,16 @@ export const Monthly: React.FC<MonthlyProps> = ({ user, year, editable, onDaySel
         }
         return colDays.map(({ row, day }, i) => {
             if (cellNotDay(row, month)) {
-                return <MonthlyEmptyCell key={`${month}-${i}`} />
+                return <MonthEmptyCell key={`${month}-${i}`} />
             }
             if (day) {
-                return <MonthlyDay key={`${month}-${i}`} dayofmonth={row} day={day} hoverText="Détails" onClick={() => onDaySelect(day)} />
+                return <MonthDayCell key={`${month}-${i}`} dayofmonth={row} day={day} hoverText="Détails" onClick={() => onDaySelect(day)} />
             }
             const dateStr = moment(`${year}-${month}-${row}`).format('YYYY-MM-DD');
             if (editable) {
-                return <MonthlyNoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="Créer" href={`/grid/${user.name}/day/add?date=${dateStr}`} />
+                return <MonthNoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="Créer" href={`/grid/${user.name}/day/add?date=${dateStr}`} />
             }
-            return <MonthlyNoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="-----" />
+            return <MonthNoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="-----" />
         });
     }
 
@@ -79,7 +79,7 @@ export const Monthly: React.FC<MonthlyProps> = ({ user, year, editable, onDaySel
             <div className="grid grid-cols-4 gap-2" style={{ backgroundColor: "red"}}>
                 {/* TODO CHAQUE MOIS POSSEDE TOUTE LA SECTION SUIVANTE */}
                 <div className="flex col-span-1 justify-center items-center bg-black">
-                    <MonthlyMonth />
+                    <MonthHeader />
                 </div>
                 {/* Contenue de la section droite de la page (contenu du calendrier) */}
                 <div className="col-span-3 bg-white">

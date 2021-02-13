@@ -6,7 +6,7 @@ import { DayData, UserData } from '../../util/types/data-types';
 import { GetUsersResponse } from '../../util/types/response-types';
 import { Button } from '../button';
 import { AuthenticationContext } from '../contexts/authentication-context';
-import { Monthly } from '../views/monthly/monthly';
+import { ViewMonth } from '../views/monthly/view-month';
 import { DetailsSidebar } from './details-sidebar';
 import { Grid } from './grid';
 
@@ -51,7 +51,7 @@ export const GridContainer: React.FC = () => {
       <div className="container mx-auto">
         {/* J'ai ajouté un bouton pour switch entre les vues. */}
         {showMonthlyView ?
-          <Monthly user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
+          <ViewMonth user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
           :
           <Grid user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
         }

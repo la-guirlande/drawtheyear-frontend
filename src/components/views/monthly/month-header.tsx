@@ -1,6 +1,4 @@
-import { DayData } from "../../../util/types/data-types"
-
-interface MonthlyMonthProps {
+interface MonthHeaderProps {
     // day: number;
     // onDaySelect?(day: DayData): void;
 }
@@ -8,7 +6,7 @@ interface MonthlyMonthProps {
 /**
  * Header d'un mois (c'est la section sur la gauche).
  */
-export const MonthlyMonth: React.FC<MonthlyMonthProps> = (props) => {
+export const MonthHeader: React.FC<MonthHeaderProps> = (props) => {
 
     return (
         <div className="flex items-center">
