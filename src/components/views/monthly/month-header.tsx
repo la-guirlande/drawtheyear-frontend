@@ -4,7 +4,8 @@ interface MonthHeaderProps {
 }
 
 /**
- * Header d'un mois (c'est la section sur la gauche).
+ * Header for month's view.
+ * @param props 
  */
 export const MonthHeader: React.FC<MonthHeaderProps> = (props) => {
 

@@ -40,6 +40,13 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
             colDays.push({ row: i, day });
         }
         return colDays.map(({ row, day }, i) => {
+            // TODO Ajout d'un margin left une ligne sur 2
+            // if (Math.pow(5, row)) {
+            //     console.log(Math.pow(5, row));
+            //     return <div className="ml-10">
+            //         t
+            //     </div>
+            // }
             if (cellNotDay(row, month)) {
                 return <MonthEmptyCell key={`${month}-${i}`} />
             }
@@ -60,13 +67,12 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
     }
 
     // TODO Faire passer le mois pour l'afficher.
-    const generateToutCours = (countMonth: number) => {
+    const generateGridYear = (countMonth: number) => {
         const element: JSX.Element[] = [];
         for (let i = 1; i <= countMonth; i++) {
             element.push(<div className="w-full inline-block p-10">
                 <h1 className="text-secondary">Mois {i}</h1>
                 <div className="grid grid-cols-5">
-                    {/* TODO Ajouter le margin left dans la génération du calendar toutes les 2 lignes. */}
                     {generateCalendar(i)}
                 </div>
             </div>)
@@ -76,14 +82,15 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
 
     return (
         <div>
-            <div className="grid grid-cols-4 gap-2" style={{ backgroundColor: "red"}}>
+            <div className="grid grid-cols-4 gap-2">
                 {/* TODO CHAQUE MOIS POSSEDE TOUTE LA SECTION SUIVANTE */}
                 <div className="flex col-span-1 justify-center items-center bg-black">
                     <MonthHeader />
                 </div>
                 {/* Contenue de la section droite de la page (contenu du calendrier) */}
                 <div className="col-span-3 bg-white">
-                    {generateToutCours(12)}
+                    {/* On doit faire passer l'année et en fonction de l'année on organise l'affichage de la grille. */}
+                    {generateGridYear(12)}
                 </div>
             </div>
         </div>

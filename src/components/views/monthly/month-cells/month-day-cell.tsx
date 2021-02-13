@@ -7,8 +7,15 @@ interface MonthDayCellProps extends React.HTMLProps<HTMLAnchorElement> {
   day: DayData;
 }
 
+
 /**
- * Balise d'un jour.
+ * Day cell component for month's view.
+ * 
+ * This component is a cell of the grid that contains a day.
+ * 
+ * @param dayofmonth Day of the month
+ * @param hoverText Text showed on hover
+ * @param day Day
  */
 export const MonthDayCell: React.FC<MonthDayCellProps> = ({ dayofmonth, hoverText, day, children, ...rest  }) => {
   const [showHoverText, setShowHoverText] = useState(false);

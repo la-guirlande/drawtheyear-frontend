@@ -9,7 +9,7 @@ export interface MonthNoDayCellProps extends React.HTMLProps<HTMLAnchorElement> 
 }
 
 /**
- * No day cell component.
+ * No day cell component for month's view.
  * 
  * This component is a cell of the grid that contains an empty day.
  * 

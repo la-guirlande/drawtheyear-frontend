@@ -1,5 +1,5 @@
 /**
- * Empty cell component.
+ * Empty cell component for month's view.
  * 
  * This component is a cell that contains nothing because the corresponding day in grid (row and column) does not exists.
  */
