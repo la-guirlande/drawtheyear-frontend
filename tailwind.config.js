@@ -10,7 +10,9 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ['"Drawing Guides"'],
-        secondary: ['"Magic Mushroom"']
+        secondary: ['"Magic Mushroom"'],
+        nunito: ['Nunito'],
+        quicksand: ['Quicksand']
       },
       colors: {
         primary: {
@@ -24,7 +26,8 @@ module.exports = {
           dark: '#bc2343'
         },
         light: '#fff4e4',
-        dark: '#3d0e1e'
+        dark: '#3d0e1e',
+        'dark-gradient': 'radial-gradient(circle, rgba(61,14,30,1) 0%, rgba(25,8,10,1) 100%)'
       },
       width: {
         '1/2-screen': '50vw',
