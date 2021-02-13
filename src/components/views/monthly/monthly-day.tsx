@@ -16,8 +16,8 @@ export const MonthlyDay: React.FC<MonthlyDayProps> = ({ dayofmonth, hoverText, d
   const toggleDetail = () => setShowHoverText(!showHoverText);
 
   return (
-    <div onMouseEnter={toggleDetail} onMouseLeave={toggleDetail} className="inline-block w-48 h-12 border border-black rounded-tl-lg rounded-br-lg bg-red bg-secondary text-white text-center align-middle m-2">
-      <a className="w-auto flex items-center justify-center h-8 border border-solid border-black rounded text-center cursor-pointer" style={{ backgroundColor: day.emotions[0].color }} {...rest}>
+    <div className="m-2" onMouseEnter={toggleDetail} onMouseLeave={toggleDetail} >
+      <a className="flex items-center justify-center text-center h-8 text-white border border-black rounded-tl-lg rounded-br-lg cursor-pointer" style={{ backgroundColor: day.emotions[0].color }} {...rest}>
         <span className="text-shadow-cell">{showHoverText ? hoverText : dayofmonth}</span>
       </a>
     </div>
