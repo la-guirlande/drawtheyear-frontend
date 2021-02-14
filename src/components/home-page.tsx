@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from './header';
-import Squares from './home/squares';
+import { Squares } from './home/squares';
 
 /**
  * Home page component.
@@ -17,7 +17,7 @@ export const HomePage: React.FC = () => (
           <h2 className="text-2xl">Activity</h2>
         </div>
       </div>
-      <Squares />
+      <Squares count={10} size={[10, 100]} />
     </div>
   </div>
 )
