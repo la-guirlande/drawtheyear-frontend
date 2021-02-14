@@ -27,7 +27,11 @@ module.exports = {
         },
         light: '#fff4e4',
         dark: '#3d0e1e',
-        'dark-gradient': 'radial-gradient(circle, rgba(61,14,30,1) 0%, rgba(25,8,10,1) 100%)'
+        'dark-gradient': 'radial-gradient(circle, rgba(61,14,30,1) 0%, rgba(25,8,10,1) 100%)',
+        'white-transparent': 'rgba(255, 255, 255, 0.2)'
+      },
+      inset: {
+        '-150px': '-150px'
       },
       width: {
         '1/2-screen': '50vw',
@@ -43,6 +47,9 @@ module.exports = {
       textShadow: {
         cell: '-1px 0 1px rgb(50, 50, 50), 0 1px 1px rgb(50, 50, 50), 1px 0 1px rgb(50, 50, 50), 0 -1px 1px rgb(50, 50, 50)'
       },
+      animation: {
+        square: 'square 25s linear infinite'
+      }
     }
   },
   variants: {
