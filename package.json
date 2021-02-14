@@ -15,6 +15,7 @@
     "@types/react-dom": "^16.9.10",
     "autoprefixer": "^10.0.4",
     "axios": "^0.21.1",
+    "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "node-waves": "^0.7.6",
     "postcss": "^8.1.10",
@@ -58,6 +59,7 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/lodash": "^4.14.168",
     "@types/moment": "^2.13.0",
     "@types/react-router-dom": "^5.1.7"
   }
