@@ -13,7 +13,7 @@ export const Squares: React.FC<SquaresProps> = ({ count, size }) => {
     for (let i = 0; i < count; i++) {
       const squareSize = _.random(size[0], size[1], false);
       elements.push(
-        <li className="absolute -bottom-150px block list-none bg-white-transparent animate-square" style={{
+        <li key={i} className="absolute -bottom-150px block list-none bg-white-transparent animate-square" style={{
           left: `${_.random(10, 90, false)}%`,
           width: `${squareSize}px`,
           height: `${squareSize}px`,
