@@ -27,10 +27,8 @@ export type ViewMonthProps = {
  * @param onDaySelect When a day cell is clicked
  */
 export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDaySelect }) => {
-    // On lui donne le numéro du mois.
-    const generateCalendar = (month: number) => {
 
-        // ça c'est un tableau de jour dans le mois (31);
+    const generateCalendar = (month: number) => {
         const colDays: { row: number, day?: DayData }[] = [];
         for (let i = 1; i <= 31; i++) {
             const day = user.days.find(day => {
@@ -40,24 +38,15 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
             colDays.push({ row: i, day });
         }
         return colDays.map(({ row, day }, i) => {
-            // TODO Ajout d'un margin left une ligne sur 2
-            // if (Math.pow(5, row)) {
-            //     console.log(Math.pow(5, row));
-            //     return <div className="ml-10">
-            //         t
-            //     </div>
-            // }
-            if (cellNotDay(row, month)) {
-                return <MonthEmptyCell key={`${month}-${i}`} />
+            if (row.toString().endsWith('6') ||
+                row.toString().endsWith('7') ||
+                row.toString().endsWith('8') ||
+                row.toString().endsWith('9') ||
+                row.toString().endsWith('0')) {
+                return generateRow(i, month, row, 'ml-5', day)
+            } else {
+                return generateRow(i, month, row, 'mr-5', day)
             }
-            if (day) {
-                return <MonthDayCell key={`${month}-${i}`} dayofmonth={row} day={day} hoverText="Détails" onClick={() => onDaySelect(day)} />
-            }
-            const dateStr = moment(`${year}-${month}-${row}`).format('YYYY-MM-DD');
-            if (editable) {
-                return <MonthNoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="Créer" href={`/grid/${user.name}/day/add?date=${dateStr}`} />
-            }
-            return <MonthNoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="-----" />
         });
     }
 
@@ -67,6 +56,10 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
     }
 
     // TODO Faire passer le mois pour l'afficher.
+    /**
+     * Generate the grid.
+     * @param countMonth Number of month.
+     */
     const generateGridYear = (countMonth: number) => {
         const element: JSX.Element[] = [];
         for (let i = 1; i <= countMonth; i++) {
@@ -78,6 +71,23 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
             </div>)
         }
         return element;
+    }
+
+    /**
+     * Generate a row with this good margin.
+     */
+    const generateRow = (i: number, month: number, row: number, style: string, day?: DayData) => {
+        if (cellNotDay(row, month)) {
+            return <div className={style}><MonthEmptyCell key={`${month}-${i}`} /></div>
+        }
+        if (day) {
+            return <div className={style}><MonthDayCell key={`${month}-${i}`} dayofmonth={row} day={day} hoverText="Détails" onClick={() => onDaySelect(day)} /></div>
+        }
+        const dateStr = moment(`${year}-${month}-${row}`).format('YYYY-MM-DD');
+        if (editable) {
+            return <div className={style}><MonthNoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="Créer" href={`/grid/${user.name}/day/add?date=${dateStr}`} /></div>
+        }
+        return <div className={style}><MonthNoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="-----" /></div>
     }
 
     return (
