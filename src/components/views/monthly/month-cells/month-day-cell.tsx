@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { DayData } from "../../../../util/types/data-types"
+import { useState } from 'react';
+import { DayData } from '../../../../util/types/data-types';
 
 interface MonthDayCellProps extends React.HTMLProps<HTMLAnchorElement> {
   dayofmonth: number;
@@ -17,7 +17,7 @@ interface MonthDayCellProps extends React.HTMLProps<HTMLAnchorElement> {
  * @param hoverText Text showed on hover
  * @param day Day
  */
-export const MonthDayCell: React.FC<MonthDayCellProps> = ({ dayofmonth, hoverText, day, children, ...rest  }) => {
+export const MonthDayCell: React.FC<MonthDayCellProps> = ({ dayofmonth, hoverText, day, ...rest  }) => {
   const [showHoverText, setShowHoverText] = useState(false);
 
   const toggleDetail = () => setShowHoverText(!showHoverText);
