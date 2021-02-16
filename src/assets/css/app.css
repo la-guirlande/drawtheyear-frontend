@@ -61,7 +61,7 @@
 }
 
 body {
-  background: radial-gradient(circle, rgba(61,14,30,1) 0%, rgba(25,8,10,1) 100%);
+  background: radial-gradient(circle, rgba(61,14,30,1) 0%, #19080a 100%);
   @apply text-light;
   
 }
@@ -83,4 +83,14 @@ body {
     rgb(31, 41, 55) 10px,
     #000000 10px,
     #000000 20px);
+}
+
+body::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: #121212;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #535353;
 }
