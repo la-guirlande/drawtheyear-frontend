@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from './header';
-import { Squares } from './home/squares';
+import { Squares } from './squares';
 
 /**
  * Home page component.
