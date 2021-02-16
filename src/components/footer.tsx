@@ -5,7 +5,7 @@ import React from 'react';
  * Footer component.
  */
 export const Footer: React.FC = () => (
-  <div className="w-full mx-auto bottom-0 absolute">
+  <div className="w-full mx-auto bottom-0 sticky">
     <hr className="my-3 bg-light"></hr>
     <footer className="text-sm text-center">
       <p>Copyright © DTY {moment(new Date()).format('YYYY')}</p>

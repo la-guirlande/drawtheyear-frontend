@@ -27,7 +27,7 @@ export const Squares: React.FC<SquaresProps> = ({ count, size }) => {
 
   return (
     <div className="w-full h-1/2-screen" >
-      <ul className="absolute left-8 top-0 bottom-0 w-11/12 h-11/12 overflow-hidden squares">
+      <ul className="absolute left-12 top-0 bottom-0 w-11/12 h-10/12 overflow-hidden squares">
         {squares}
       </ul>
     </div >
