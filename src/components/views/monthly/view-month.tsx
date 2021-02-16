@@ -3,7 +3,6 @@ import React from 'react';
 import { DayData, UserData } from '../../../util/types/data-types';
 import { MonthDayCell } from './month-cells/month-day-cell';
 import { MonthEmptyCell } from './month-cells/month-empty-cell';
-import { MonthHeader } from './month-header';
 import { MonthNoDayCell } from './month-cells/month-no-day-cell';
 
 /**
@@ -28,7 +27,7 @@ export type ViewMonthProps = {
  */
 export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDaySelect }) => {
 
-    const generateCalendar = (month: number) => {
+    const generateContent = (month: number) => {
         const colDays: { row: number, day?: DayData }[] = [];
         for (let i = 1; i <= 31; i++) {
             const day = user.days.find(day => {
@@ -57,20 +56,39 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
 
     // TODO Faire passer le mois pour l'afficher.
     /**
-     * Generate the grid.
-     * @param countMonth Number of month.
+     * Generate the grid (section header & content). 
+     * @param year Set year
      */
-    const generateGridYear = (countMonth: number) => {
-        const element: JSX.Element[] = [];
-        for (let i = 1; i <= countMonth; i++) {
-            element.push(<div className="w-full inline-block p-10">
-                <h1 className="text-secondary">Mois {i}</h1>
+    const generateGrid = (year: number) => {
+        const header: JSX.Element[] = [];
+        const content: JSX.Element[] = [];
+
+        const date = new Date(year);
+        date.setFullYear(year);
+
+        for (let i = 1; i <= 12; i++) {
+            header.push(<div className="flex m-1  items-center justify-center">
+                {/* <h2 className="lg:text-4xl md:text-5xl">{moment(date).format('MMMM')} {year}</h2> */}
+                <h2 className="lg:text-4xl md:text-5xl">{moment().month()}</h2>
+            </div>
+            );
+            content.push(<div className="w-full inline-block">
                 <div className="grid grid-cols-5">
-                    {generateCalendar(i)}
+                    {generateContent(i)}
                 </div>
-            </div>)
+            </div>);
         }
-        return element;
+
+        return <div className="grid grid-cols-4 gap-2">
+            <div className="flex col-span-1">
+                <div className="grid grid-cols-1 w-full">
+                    {header}
+                </div>
+            </div>
+            <div className="col-span-3">
+                {content}
+            </div>
+        </div>;
     }
 
     /**
@@ -92,17 +110,7 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
 
     return (
         <div>
-            <div className="grid grid-cols-4 gap-2">
-                {/* TODO CHAQUE MOIS POSSEDE TOUTE LA SECTION SUIVANTE */}
-                <div className="flex col-span-1 justify-center items-center bg-black">
-                    <MonthHeader />
-                </div>
-                {/* Contenue de la section droite de la page (contenu du calendrier) */}
-                <div className="col-span-3 bg-white">
-                    {/* On doit faire passer l'année et en fonction de l'année on organise l'affichage de la grille. */}
-                    {generateGridYear(12)}
-                </div>
-            </div>
+            {generateGrid(year)}
         </div>
     )
 }
