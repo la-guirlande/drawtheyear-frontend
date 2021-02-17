@@ -7,7 +7,7 @@ import { Squares } from './squares';
  */
 export const HomePage: React.FC = () => (
   <div className="mt-3">
-    <div className="container mx-auto sidebar-styled">
+    <div className="container mx-auto scrollbar-styled">
       <Header />
       <div className="h-48 flex flex-wrap content-center">
         <div className="w-full md:w-1/2 mb-5 md:mb-0 text-center">
