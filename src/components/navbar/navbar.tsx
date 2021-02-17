@@ -24,7 +24,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <Link className="waves-effect" to="/" href="#">
-                <img className="w-8" src="https://icons-for-free.com/iconfiles/png/512/fireworks+new+year+party+icon-1320185813780531454.png" alt="DrawTheYear" />
+                <h1 className="text-2xl md:text-4xl font-primary">DrawTheYear</h1>
               </Link>
             </div>
             <div className="hidden md:block">

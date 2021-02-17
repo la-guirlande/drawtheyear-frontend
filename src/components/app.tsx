@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AuthenticationContextProvider } from './contexts/authentication-context';
 import { Footer } from './footer';
 import { GridPage } from './grid/grid-page';
-import { HomePage } from './home-page';
+import { HomePage } from './home/home-page';
 import { Navbar } from './navbar/navbar';
 import { SigninPage } from './signin/signin-page';
 import { SignupPage } from './signup/signup-page';
