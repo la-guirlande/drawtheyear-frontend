@@ -48,7 +48,7 @@ export const GridContainer: React.FC = () => {
     <div>
       <button onClick={handleChangeView} type="button" className="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-primary-light hover:bg-primary-dark text-white font-normal py-2 px-4 mr-1 rounded">View / Grid</button>
       {selectedDay && <DetailsSidebar user={user} day={selectedDay} editable={authUser?.id === user?.id} onShouldClose={() => setSelectedDay(null)} />}
-      <div className="container mx-auto">
+      <div className="mx-auto">
         {/* J'ai ajouté un bouton pour switch entre les vues. */}
         {showMonthlyView ?
           <ViewMonth user={user} year={2020} editable={authUser?.id === user?.id} onDaySelect={handleDaySelect} />
