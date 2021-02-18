@@ -66,29 +66,31 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
         const date = new Date(year);
         date.setFullYear(year);
 
-        for (let i = 1; i <= 12; i++) {
-            header.push(<div className="flex m-1  items-center justify-center">
+        for (let i = 1; i <= 3; i++) {
+            header.push(<div className="flex m-1 items-center justify-center bg-black bg-opacity-20">
                 {/* <h2 className="lg:text-4xl md:text-5xl">{moment(date).format('MMMM')} {year}</h2> */}
                 <h2 className="lg:text-4xl md:text-5xl">{moment().month()}</h2>
             </div>
-            );
-            content.push(<div className="w-full inline-block">
-                <div className="grid grid-cols-5">
+            )
+            content.push(<div className="w-full inline-block bg-white bg-opacity-20 rounded-md mb-1">
+                <div className="grid grid-cols-5  h-screen">
                     {generateContent(i)}
                 </div>
-            </div>);
+            </div>)
         }
 
-        return <div className="grid grid-cols-4 gap-2">
-            <div className="flex col-span-1">
-                <div className="grid grid-cols-1 w-full">
-                    {header}
+        return <section className="overflow-h">
+            <div className="grid grid-cols-4 gap-2">
+                <div className="flex col-span-1">
+                    <div className="grid grid-cols-1 w-full">
+                        {header}
+                    </div>
+                </div>
+                <div className="col-span-3 bg-red-600">
+                    {content}
                 </div>
             </div>
-            <div className="col-span-3">
-                {content}
-            </div>
-        </div>;
+        </section>;
     }
 
     /**
