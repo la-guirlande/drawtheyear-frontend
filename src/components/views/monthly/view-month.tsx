@@ -32,7 +32,7 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
         for (let i = 1; i <= 31; i++) {
             const day = user.days.find(day => {
                 const date = new Date(day.date);
-                return date.getFullYear() === year && date.getMonth() + 1 === month && date.getDate() === i && date.getMonth() !== 5;
+                return date.getFullYear() === year && date.getMonth() === month && date.getDate() === i;
             });
             colDays.push({ row: i, day });
         }
@@ -42,9 +42,9 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
                 row.toString().endsWith('8') ||
                 row.toString().endsWith('9') ||
                 row.toString().endsWith('0')) {
-                return generateRow(i, month, row, 'ml-5', day)
+                return generateRow(i, month, row, '', day)
             } else {
-                return generateRow(i, month, row, 'mr-5', day)
+                return generateRow(i, month, row, '', day)
             }
         });
     }
@@ -62,18 +62,16 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
     const generateGrid = (year: number) => {
         const header: JSX.Element[] = [];
         const content: JSX.Element[] = [];
+        const month = new Date(`${year}-01-01`).getMonth();
 
-        const date = new Date(year);
-        date.setFullYear(year);
+        for (let i = 0; i < 12; i++) {
 
-        for (let i = 1; i <= 3; i++) {
             header.push(<div className="flex m-1 items-center justify-center bg-black bg-opacity-20">
-                {/* <h2 className="lg:text-4xl md:text-5xl">{moment(date).format('MMMM')} {year}</h2> */}
-                <h2 className="lg:text-4xl md:text-5xl">{moment().month()}</h2>
+                <a className="lg:text-4xl md:text-5xl">{moment().locale('fr').month(month + i).format('MMMM')} {year}</a>
             </div>
             )
             content.push(<div className="w-full inline-block bg-white bg-opacity-20 rounded-md mb-1">
-                <div className="grid grid-cols-5  h-screen">
+                <div className="grid grid-cols-5">
                     {generateContent(i)}
                 </div>
             </div>)
@@ -83,10 +81,10 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
             <div className="grid grid-cols-4 gap-2">
                 <div className="flex col-span-1">
                     <div className="grid grid-cols-1 w-full">
-                        {header}
+                        {header}    
                     </div>
                 </div>
-                <div className="col-span-3 bg-red-600">
+                <div className="col-span-3">
                     {content}
                 </div>
             </div>
@@ -109,6 +107,24 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
         }
         return <div className={style}><MonthNoDayCell key={`${month}-${i}`} dayofmonth={row} hoverText="-----" /></div>
     }
+
+    /**
+     * Generate a list with 12 months
+     * // TODO Mettre cette méthode ailleurs
+     */
+    const generateTableMonth = () => {
+        const table: { num: number, month: string }[] = [];
+        const date = new Date();
+
+        for (let i = 1; i <= 12; i++) {
+            table.push({
+                num: i,
+                month: 't'
+            })
+        }
+        console.log(table);
+        return <></>;
+    } 
 
     return (
         <div>
