@@ -5,8 +5,7 @@
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const MonthEmptyCell: React.FC = ({ children, ...rest }) => (
-    <div className="m-2">
-      <a className="flex items-center justify-center h-8 border border-solid border-black rounded-tl-lg rounded-br-lg text-center cell-no-day" {...rest}></a>
-    </div>
-  ); 
-  
+  <div className="m-2">
+    <a className="flex items-center justify-center h-8 border border-solid border-black rounded-tl-lg rounded-br-lg text-center cell-no-day" {...rest}></a>
+  </div>
+);
