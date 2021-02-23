@@ -2,6 +2,7 @@ import { POINT_CONVERSION_COMPRESSED } from 'constants';
 import moment from 'moment';
 import React from 'react';
 import { DayData, UserData } from '../../../util/types/data-types';
+import utils from '../../../util/utils';
 import { MonthDayCell } from './month-cells/month-day-cell';
 import { MonthEmptyCell } from './month-cells/month-empty-cell';
 import { MonthNoDayCell } from './month-cells/month-no-day-cell';
@@ -78,7 +79,7 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
         for (let i = 0; i < 12; i++) {
             content.push(<div>
                 <div className="flex m-1 items-center justify-center bg-black bg-opacity-20">
-                    <a className="lg:text-4xl md:text-5xl">{moment().locale('FR').month(month + i).format('MMMM')} {year}</a>
+                    <a className="lg:text-4xl md:text-5xl">{utils.monthMap.get(month + i)} {year}</a>
                 </div>
                 <div className="w-full inline-block bg-white bg-opacity-20 rounded-md mb-1">
                     <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7">
