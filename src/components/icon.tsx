@@ -5,8 +5,12 @@ import React from 'react';
  */
 export type IconType
   = 'cloud'
+  | 'close'
   | 'dehaze'
-  | 'close';
+  | 'event_note'
+  | 'home'
+  | 'keyboard_arrow_left'
+  | 'keyboard_arrow_right';
 
 /**
  * Icon component props.
