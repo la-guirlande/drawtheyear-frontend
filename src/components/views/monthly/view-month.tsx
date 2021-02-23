@@ -28,6 +28,10 @@ export type ViewMonthProps = {
  */
 export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDaySelect }) => {
 
+    /**
+     * Generate the content of the grid.
+     * @param month Number of a month.
+     */
     const generateContent = (month: number) => {
         const colDays: { row: number, day?: DayData }[] = [];
         for (let i = 1; i <= 31; i++) {
