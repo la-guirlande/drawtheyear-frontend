@@ -56,8 +56,14 @@ export const ViewMonth: React.FC<ViewMonthProps> = ({ user, year, editable, onDa
         });
     }
 
+    /**
+     * Check if a day exist.
+     * @param row Day of a month
+     * @param column Number of a month 
+     */
     const cellNotDay = (row: number, column: number) => {
         const isLeap = (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0));
+        column += 1;
         return (column === 2 && row > (isLeap ? 29 : 28)) || ((column === 4 || column === 6 || column === 9 || column === 11) && row > 30) || (row > 31) || (column > 12);
     }
 
