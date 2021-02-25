@@ -53,21 +53,21 @@ export const SigninContainer: React.FC = () => {
   }
 
   return (
-    <div className="grid grid-cols-5 gap-4 w-full">
-      <div className="col-span-3">
-        <div className="flex flex-col justify-center ">
+    <div className="lg:grid lg:grid-cols-5 lg:gap-4 w-full">
+      <div className="lg:col-span-3">
+        <div className="flex flex-col justify-center">
           <div className="flex flex-col mx-auto my-0">
-            <div className="text-5xl pt-36">
+            <div className="text-3xl md:text-4xl xl:text-5xl  xl:pt-36 pt-20 ">
               Connectez-vous pour
             </div>
-            <div className="text-5xl ">
+            <div className="text-3xl md:text-4xl xl:text-5xl ">
               Commencer à écrire
             </div>
             <div className="text-xl mt-8 flex flex-col text-gray-400 self-center">
               Si vous n'avez pas de compte
             </div>
             <div className="text-gray-400 flex flex-row items-center self-center">
-              <span>Vous pouvez vous </span> <Button href="/signup"><span className="text-yellow-600 hover:border-b-2 border-solid hover:border-yellow-500 hover:text-yellow-500 cursor-pointer">Inscrire</span></Button>
+              <span>Vous pouvez vous</span> <Button href="/signup"><span className="text-yellow-600 hover:border-b-2 border-solid hover:border-yellow-500 hover:text-yellow-500 cursor-pointer">Inscrire ici</span></Button>
             </div>
             <div className="w-60 mt-8 self-center">
               <img src={Daydotted} alt="Day dotted"/>
@@ -75,8 +75,10 @@ export const SigninContainer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-2">
-        <SigninForm onSubmit={handleSubmitSigninForm} />
+      <div className="lg:col-span-2">
+        <div className="flex flex-col justify-center ">
+          <SigninForm onSubmit={handleSubmitSigninForm} />
+        </div>
       </div>
     </div>
   );
