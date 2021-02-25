@@ -44,13 +44,22 @@ export const SigninForm: React.FC<SigninFormProps> = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit(data => onSubmit(data))}>
-      <input className="bg-black m-2" ref={emailRegister} type="text" name="email" />
-      {errors.email && <small>{errors.email.message}</small>}
+      <div className="flex flex-col justify-center items-center mx-auto lg:mt-40 mt-16">
+        <div>
+          <input className="m-2 p-4 w-80 rounded focus:outline-none text-gray-800" ref={emailRegister} type="text" name="email" placeholder="Adresse Email"/>
+          {errors.email && <small>{errors.email.message}</small>}
+        </div>
+        <div>
+          <input className="m-2 p-4 w-80 mt-8 rounded focus:outline-none text-gray-800" ref={passwordRegister} type="password" name="password" placeholder="Mot de passe"/>
+          {errors.password && <small>{errors.password.message}</small>}
+        </div>
+        <div className="text-sm text-gray-400 cursor-pointer hover:text-gray-200">
+          Mot de passe oublié ?
+        </div>
 
-      <input className="bg-black m-2" ref={passwordRegister} type="password" name="password" />
-      {errors.password && <small>{errors.password.message}</small>}
+        <button className="mt-8 p-4 rounded bg-secondary-dark w-60 waves-effect mb-12 lg:mb-0" type="submit">Connexion</button>
+      </div>
 
-      <button type="submit">Connexion</button>
     </form>
   );
 }
