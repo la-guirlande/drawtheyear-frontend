@@ -58,18 +58,18 @@ export const SigninContainer: React.FC = () => {
         <div className="flex flex-col justify-center ">
           <div className="flex flex-col mx-auto my-0">
             <div className="text-5xl pt-36">
-              Sign In to
+              Connectez-vous pour
             </div>
             <div className="text-5xl ">
-              Start writing
+              Commencer à écrire
             </div>
-            <div className="text-xl mt-8 flex flex-col text-gray-400">
-              If you don't have an account
+            <div className="text-xl mt-8 flex flex-col text-gray-400 self-center">
+              Si vous n'avez pas de compte
             </div>
-            <div className="text-gray-400 mx-auto">
-              You can <span className="text-yellow-600 hover:border-b-2 border-solid hover:border-yellow-500 hover:text-yellow-500 cursor-pointer">Register here</span>
+            <div className="text-gray-400 flex flex-row items-center self-center">
+              <span>Vous pouvez vous </span> <Button href="/signup"><span className="text-yellow-600 hover:border-b-2 border-solid hover:border-yellow-500 hover:text-yellow-500 cursor-pointer">Inscrire</span></Button>
             </div>
-            <div className="w-60 mt-8">
+            <div className="w-60 mt-8 self-center">
               <img src={Daydotted} alt="Day dotted"/>
             </div>
           </div>
@@ -77,7 +77,6 @@ export const SigninContainer: React.FC = () => {
       </div>
       <div className="col-span-2">
         <SigninForm onSubmit={handleSubmitSigninForm} />
-        <Button href="/signup">Inscription</Button>
       </div>
     </div>
   );
