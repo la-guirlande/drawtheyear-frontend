@@ -69,7 +69,7 @@ export const SigninContainer: React.FC = () => {
             <div className="text-gray-400 mx-auto">
               You can <span className="text-yellow-600 hover:border-b-2 border-solid hover:border-yellow-500 hover:text-yellow-500 cursor-pointer">Register here</span>
             </div>
-            <div className="w-80">
+            <div className="w-60 mt-8">
               <img src={Daydotted} alt="Day dotted"/>
             </div>
           </div>
