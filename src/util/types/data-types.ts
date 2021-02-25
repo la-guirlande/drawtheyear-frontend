@@ -44,6 +44,10 @@ export interface DayData extends TimeStamps {
   date: string;
   description: string;
   emotions: EmotionData[];
+  attachments: {
+    type: 'link' | 'file';
+    url: string;
+  }[];
 }
 
 /**
