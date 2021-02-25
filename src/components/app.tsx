@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AuthenticationContextProvider } from './contexts/authentication-context';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { DayPage } from './views/day/day-page';
 import { Footer } from './footer';
 import { GridPage } from './grid/grid-page';
 import { HomePage } from './home/home-page';
@@ -24,6 +25,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/grid/:username">
           <GridPage />
+        </Route>
+        <Route exact path="/grid/:username/day/:date">
+          <DayPage />
         </Route>
         <Route exact path="/stats">
           <StatsPage />
