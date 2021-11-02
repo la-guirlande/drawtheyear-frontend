@@ -1,6 +1,6 @@
 {
   "short_name": "DrawTheYear",
-  "name": "DrawTheYear - Year in pixels",
+  "name": "Year in pixels",
   "icons": [],
   "start_url": ".",
   "display": "standalone",
