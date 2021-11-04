@@ -1,23 +1,19 @@
 import classNames from 'classnames';
 import { ButtonHTMLAttributes, FC } from 'react';
-import { VariantProps } from '../types/variants';
+import { OutlineProps, SizeProps, VariantProps } from '../types/props';
 
 /**
  * Button props.
  */
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps {
-  outline?: boolean;
-  size?: 'sm' | 'md' | 'lg';
-}
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps, OutlineProps, SizeProps {}
 
 /**
  * Button component. 
  */
-export const Button: FC<ButtonProps> = ({ className, variant, outline, size, children, ...props }) => (
+export const Button: FC<ButtonProps> = ({ className, variant, outline, componentSize, children, ...props }) => (
   <button className={classNames(
     className,
-    'px-4', { 'py-1': size === 'sm' }, { 'py-2': size === 'md' }, { 'py-3': size === 'lg' },
-    'font-quicksand-book',
+    'px-4', { 'py-1': componentSize === 'sm' }, { 'py-2': componentSize === 'md' }, { 'py-3': componentSize === 'lg' },
     'rounded-sm',
     `ring-4 ring-${variant}-dark ring-opacity-0 focus:ring-opacity-100`,
     { [`ring-offset-1 ring-offset-${variant}-dark dark:ring-offset-${variant}-light focus:ring-offset-white`]: outline },
@@ -30,5 +26,5 @@ export const Button: FC<ButtonProps> = ({ className, variant, outline, size, chi
 Button.defaultProps = {
   variant: 'primary',
   outline: false,
-  size: 'md'
+  componentSize: 'md'
 }
