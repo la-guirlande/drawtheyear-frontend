@@ -14,12 +14,12 @@ export const Input: FC<InputProps> = ({ className, variant, componentSize, ...pr
   <input className={classNames(
     className,
     'max-w-md',
-    { 'h-8': componentSize === 'sm' }, { 'h-12': componentSize === 'lg' },
+    { 'h-6 text-sm': componentSize === 'sm' }, { 'h-12 text-lg': componentSize === 'lg' },
     'px-2 py-1',
     'rounded-sm',
     'outline-none',
     `ring-4 ring-${variant}-dark ring-opacity-0 focus:ring-opacity-100`,
-    'bg-white dark:bg-gray-900',
+    'bg-white dark:bg-gray-800',
     'text-black dark:text-white placeholder-gray-500',
     'transition-all duration-200'
   )} {...props} />
