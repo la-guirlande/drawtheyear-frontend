@@ -13,7 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, Va
 export const Button: FC<ButtonProps> = ({ className, variant, outline, componentSize, children, ...props }) => (
   <button className={classNames(
     className,
-    'px-4', { 'py-1': componentSize === 'sm' }, { 'py-2': componentSize === 'md' }, { 'py-3': componentSize === 'lg' },
+    'px-4', { 'py-1 text-sm': componentSize === 'sm' }, { 'py-2': componentSize === 'md' }, { 'py-3 text-lg': componentSize === 'lg' },
     'rounded-sm',
     `ring-4 ring-${variant}-dark ring-opacity-0 focus:ring-opacity-100`,
     { [`ring-offset-1 ring-offset-${variant}-dark dark:ring-offset-${variant}-light focus:ring-offset-white`]: outline },
