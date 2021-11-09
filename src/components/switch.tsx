@@ -26,7 +26,7 @@ export const Switch: FC<SwitchProps> = ({ id, className, variant, outline, compo
         <div className="flex flex-row space-x-2">
           <div className={classNames(
             className,
-            { 'w-10 h-5': componentSize === 'sm' }, { 'w-12 h-6': componentSize === 'md' }, { 'w-14 h-7': componentSize === 'lg' },
+            { 'w-10 h-5 text-sm': componentSize === 'sm' }, { 'w-12 h-6': componentSize === 'md' }, { 'w-14 h-7 text-lg': componentSize === 'lg' },
             'p-0.5',
             'rounded-full',
             { 'ring-2': outline }, { [`ring-${variant}-dark`]: outline && checked }, { 'ring-gray-900': outline && !checked },
