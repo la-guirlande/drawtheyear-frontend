@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/css/index.css';
+import { BrowserRouter } from 'react-router-dom';
 import { App } from './app';
-import reportWebVitals from './reportWebVitals';
+import './assets/css/index.css';
 import { faConfig } from './configuration';
+import reportWebVitals from './reportWebVitals';
 
 faConfig.load();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <App />
-  </React.StrictMode>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
