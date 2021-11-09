@@ -15,7 +15,7 @@
 }
 
 body {
-  @apply min-h-screen font-quicksand-book bg-gray-300 dark:bg-gray-700 text-black dark:text-white;
+  @apply min-h-screen font-quicksand-book bg-gray-200 dark:bg-gray-800 text-black dark:text-white;
 }
 
 h1 {

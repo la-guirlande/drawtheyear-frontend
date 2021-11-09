@@ -19,7 +19,7 @@ export const Input: FC<InputProps> = ({ className, variant, componentSize, ...pr
     'rounded-sm',
     'outline-none',
     `ring-4 ring-${variant}-dark ring-opacity-0 focus:ring-opacity-100`,
-    'bg-white dark:bg-gray-800',
+    'bg-white dark:bg-gray-900',
     'text-black dark:text-white placeholder-gray-500',
     'transition-all duration-200'
   )} {...props} />

@@ -29,8 +29,8 @@ export const Switch: FC<SwitchProps> = ({ id, className, variant, outline, compo
             { 'w-10 h-5': componentSize === 'sm' }, { 'w-12 h-6': componentSize === 'md' }, { 'w-14 h-7': componentSize === 'lg' },
             'p-0.5',
             'rounded-full',
-            { 'ring-2': outline }, { [`ring-${variant}-dark`]: outline && checked }, { 'ring-gray-800': outline && !checked },
-            { [`bg-${variant}-dark`]: !outline && checked }, { 'bg-gray-800': !outline && !checked },
+            { 'ring-2': outline }, { [`ring-${variant}-dark`]: outline && checked }, { 'ring-gray-900': outline && !checked },
+            { [`bg-${variant}-dark`]: !outline && checked }, { 'bg-gray-800 dark:bg-gray-900': !outline && !checked },
             'cursor-pointer'
           )}>
             <div className={classNames(
